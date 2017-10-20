@@ -12,4 +12,4 @@ meme_save(x, file="meme.png")
 ```
 
 
-![](https://guangchuangyu.github.io/blog_images/R/yyplot/Screenshot 2017-10-20 14.55.13.png)
+![](https://guangchuangyu.github.io/blog_images/R/yyplot/Screenshot%202017-10-20%2014.55.13.png)
