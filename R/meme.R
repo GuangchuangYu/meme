@@ -20,10 +20,8 @@
 ##' @importFrom grDevices dev.new
 ##' @export
 ##' @examples
-##' \dontrun{
 ##' u <- "http://www.happyfamilyneeds.com/wp-content/uploads/2017/08/angry8.jpg"
 ##' meme(u, "code", "all the things!")
-##' }
 ##' @author guangchuang yu
 meme <- function(img, upper="", lower="", size="auto", color="white", font="Helvetica") {
     x <- image_read(img)

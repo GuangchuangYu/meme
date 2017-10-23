@@ -10,10 +10,10 @@ html_preview: false
 
 
 ```{r include=FALSE}
-knitr::opts_chunk$set(fig.path = "Figs/",
+knitr::opts_chunk$set(fig.path = "docs/Figs/",
                       warning = FALSE,
                       message = TRUE)
-unlink("Figs/", recursive=T)
+unlink("docs/Figs/", recursive=T)
 ```
 
 

@@ -10,7 +10,7 @@ u <- "http://www.happyfamilyneeds.com/wp-content/uploads/2017/08/angry8.jpg"
 meme(u, "code", "all the things!")
 ```
 
-![](Figs/unnamed-chunk-2-1.png)
+![](docs/Figs/unnamed-chunk-2-1.png)
 
 `meme_save`
 -----------
@@ -34,7 +34,7 @@ Users can `plot` the `meme` output and change the caption or other parameters in
 plot(x, size = 2, "happy friday!", "wait, sorry, it's monday", color = "firebrick", font = "Courier")
 ```
 
-![](Figs/unnamed-chunk-4-1.png)
+![](docs/Figs/unnamed-chunk-4-1.png)
 
 `+` method
 ----------
@@ -47,7 +47,7 @@ x + aes(upper = "#barbarplots",
         color = firebrick, font = Courier, size=1.5)
 ```
 
-![](Figs/unnamed-chunk-5-1.png)
+![](docs/Figs/unnamed-chunk-5-1.png)
 
 or using `+ list()`. The following command will also generate the figure displayed above.
 
@@ -66,4 +66,4 @@ I didn't do anything about it. Multi-language was supported internally. Just sim
 meme(u, "卧槽", "听说你想用中文", font="STHeiti")
 ```
 
-![](Figs/unnamed-chunk-7-1.png)
+![](docs/Figs/unnamed-chunk-7-1.png)
