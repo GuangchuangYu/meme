@@ -12,10 +12,10 @@ meme(u, "code", "all the things!")
 
 ![](Figs/unnamed-chunk-2-1.png)
 
-The `meme` output can be save as an object, and can be exported to file using `meme_save`, (similar to `ggsave` :smiley:):
-
 `meme_save`
 -----------
+
+The `meme` output can be save as an object, and can be exported to file using `meme_save`, (similar to `ggsave` :smiley:):
 
 ``` r
 u2 <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
@@ -51,6 +51,8 @@ x + aes(upper = "#barbarplots",
 
 multi-language support
 ----------------------
+
+I didn't do anything about it. Multi-language was supported internally. Just simply select a font for your language.
 
 ``` r
 meme(u, "卧槽", "听说你想用中文", font="STHeiti")
