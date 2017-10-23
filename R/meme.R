@@ -78,7 +78,6 @@ print.meme <- function(x, ...) {
     msg <- paste0("meme:\n  image souce:  ", x$img,
                   "\n  caption:\n    upper:  ", x$upper,
                   "\n    lower:  ", x$lower)
-    #"\n--> use `meme_save()` to export the object to figure")
     message(msg)
 }
 
@@ -121,6 +120,7 @@ plot.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, l
     lowerGrob <- textGrob(toupper(lower), gp = gp, vp = viewport(y=vjust))
 
     meme <- gList(x$imageGrob, upperGrob, lowerGrob)
+    on.exit(grid.draw(meme))
 
     if (is.null(knitr::opts_knit$get("out.format"))) {
         if (dev.new) {
@@ -129,7 +129,6 @@ plot.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, l
             dev.new(width=7, height=7*x$height/x$width)
         }
     }
-    grid.draw(meme)
 }
 
 ##' aspect ratio of meme
