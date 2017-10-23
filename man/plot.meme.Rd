@@ -5,7 +5,7 @@
 \title{plot method for meme object}
 \usage{
 \method{plot}{meme}(x, size = NULL, color = NULL, font = NULL,
-  upper = NULL, lower = NULL, dev.new = TRUE, ...)
+  upper = NULL, lower = NULL, dev.new = TRUE, vjust = 0.1, ...)
 }
 \arguments{
 \item{x}{meme object}
@@ -21,6 +21,8 @@
 \item{lower}{lower text}
 
 \item{dev.new}{wheter open new device}
+
+\item{vjust}{vertical adjustment ratio}
 
 \item{...}{other arguments not used by this method}
 }

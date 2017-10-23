@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 Makefile
 
+README.Rmd
+Figs
+README.md

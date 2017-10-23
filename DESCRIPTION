@@ -10,7 +10,9 @@ Imports:
     grDevices,
     grid,
     magick,
-    methods,
+    methods
+Suggests:
+    knitr,
     svglite
 Encoding: UTF-8
 LazyData: true

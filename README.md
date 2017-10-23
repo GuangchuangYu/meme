@@ -12,7 +12,7 @@ meme(u, "code", "all the things!")
 The `meme` output can be save as an object, and can be exported to file using `meme_save`:
 
 ``` r
-u <- "http://news.china.com.au/wp-content/uploads/2016/04/640-841.jpeg"
+u <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
 x <- meme(u, "please", "tell me more", plot=FALSE)
 x
 meme_save(x, file="Figs/meme.png")

@@ -28,6 +28,12 @@ grob object
 \description{
 create meme
 }
+\examples{
+\dontrun{
+u <- "http://www.happyfamilyneeds.com/wp-content/uploads/2017/08/angry8.jpg"
+meme(u, "code", "all the things!")
+}
+}
 \author{
 guangchuang yu
 }

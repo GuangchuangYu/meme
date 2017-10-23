@@ -20,6 +20,11 @@
 ##' @importFrom grid gList
 ##' @importFrom grDevices dev.new
 ##' @export
+##' @examples
+##' \dontrun{
+##' u <- "http://www.happyfamilyneeds.com/wp-content/uploads/2017/08/angry8.jpg"
+##' meme(u, "code", "all the things!")
+##' }
 ##' @author guangchuang yu
 meme <- function(img, upper="", lower="", size="auto", color="white", font="Helvetica", plot=TRUE) {
     x <- image_read(img)
@@ -90,10 +95,11 @@ print.meme <- function(x, ...) {
 ##' @param upper upper text
 ##' @param lower lower text
 ##' @param dev.new wheter open new device
+##' @param vjust vertical adjustment ratio
 ##' @param ... other arguments not used by this method
 ##' @importFrom grDevices dev.list
 ##' @importFrom grDevices dev.off
-plot.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, lower = NULL, dev.new = TRUE, ...) {
+plot.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, lower = NULL, dev.new = TRUE, vjust=.1, ...) {
     if (is.null(upper))
         upper <- x$upper
     if (is.null(lower))
@@ -111,8 +117,8 @@ plot.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, l
     }
 
     gp <- gpar(col = color, fontfamily = font, cex = size)
-    upperGrob <- textGrob(toupper(upper), gp = gp, vp = viewport(y=.9))
-    lowerGrob <- textGrob(toupper(lower), gp = gp, vp = viewport(y=.1))
+    upperGrob <- textGrob(toupper(upper), gp = gp, vp = viewport(y=1-vjust))
+    lowerGrob <- textGrob(toupper(lower), gp = gp, vp = viewport(y=vjust))
 
     meme <- gList(x$imageGrob, upperGrob, lowerGrob)
 
