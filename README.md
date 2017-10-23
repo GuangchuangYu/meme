@@ -1,4 +1,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+`meme`
+------
+
 Call \``meme` to add meme captions:
 
 ``` r
@@ -11,6 +14,9 @@ meme(u, "code", "all the things!")
 
 The `meme` output can be save as an object, and can be exported to file using `meme_save`:
 
+`meme_save`
+-----------
+
 ``` r
 u2 <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
 x <- meme(u2, "please", "tell me more", plot=FALSE)
@@ -20,6 +26,9 @@ meme_save(x, file="Figs/meme.png")
 
 <img src="Figs/meme.png" width="672"/>
 
+`plot` method
+-------------
+
 Users can `plot` the `meme` output and change the caption or other parameters in real time.
 
 ``` r
@@ -27,6 +36,9 @@ plot(x, size = 2, "happy friday!", "wait, sorry, it's monday", color = "firebric
 ```
 
 ![](Figs/unnamed-chunk-4-1.png)
+
+multi-language support
+----------------------
 
 ``` r
 meme(u, "卧槽", "听说你想用中文", font="STHeiti")
