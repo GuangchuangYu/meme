@@ -21,6 +21,15 @@ The `meme` output can be save as an object, and can be exported to file using `m
 u2 <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
 x <- meme(u2, "please", "tell me more", plot=FALSE)
 x
+```
+
+    ## meme:
+    ##   image souce:  http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg
+    ##   caption:
+    ##     upper:  please
+    ##     lower:  tell me more
+
+``` r
 meme_save(x, file="Figs/meme.png")
 ```
 
