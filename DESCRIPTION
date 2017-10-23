@@ -2,7 +2,7 @@ Package: meme
 Title: Create Meme
 Version: 0.0.3
 Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
-Description: The word 'Meme' was originated from the book, 'The Selfish Gene', authored by Richard Dawkins (1976). It is a unit of culture that is passed from one generation to another and corrlates to the gene, the unit of physical heredity. The internet memes are captioned photos that are intended to be funny, ridiculous. Memes behave like infectious viruses and travel from person to person quickly through social media.
+Description: The word 'Meme' was originated from the book, 'The Selfish Gene', authored by Richard Dawkins (1976). It is a unit of culture that is passed from one generation to another and correlates to the gene, the unit of physical heredity. The internet memes are captioned photos that are intended to be funny, ridiculous. Memes behave like infectious viruses and travel from person to person quickly through social media. The 'meme' package allows users to make custom memes in R.
 Depends: R (>= 3.4.2)
 Imports:
     ggplot2,
