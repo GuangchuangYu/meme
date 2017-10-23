@@ -4,16 +4,18 @@
 \alias{meme_save}
 \title{meme_save}
 \usage{
-meme_save(x, file = "meme.png", device = NULL, dpi = 300)
+meme_save(x, file, width = NULL, height = NULL, ...)
 }
 \arguments{
 \item{x}{meme output}
 
 \item{file}{output file}
 
-\item{device}{graphic device}
+\item{width}{width of graph}
 
-\item{dpi}{dpi of the figure}
+\item{height}{height of graph}
+
+\item{...}{additional arguments for ggsave}
 }
 \description{
 save meme plot

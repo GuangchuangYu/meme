@@ -46,25 +46,32 @@ meme <- function(img, upper="", lower="", size="auto", color="white", font="Helv
 ##' @title meme_save
 ##' @param x meme output
 ##' @param file output file
-##' @param device graphic device
-##' @param dpi dpi of the figure
+##' @param width width of graph
+##' @param height height of graph
+##' @param ... additional arguments for ggsave
 ##' @return NULL
 ##' @importFrom methods is
 ##' @importFrom graphics plot
+##' @importFrom ggplot2 ggsave
 ##' @export
 ##' @author guangchuang yu
-meme_save <- function(x, file="meme.png", device=NULL, dpi = 300) {
+meme_save <- function(x, file, width = NULL, height = NULL, ...) {
     if (!is(x, "meme")) {
         stop("x should be an instance of 'meme'")
     }
-    dev <- plot_dev(device, file, dpi = dpi)
-    dev(file = file, width = x$width * 0.010417, height = x$height * 0.010417)
-    on.exit(utils::capture.output(grDevices::dev.off()))
-    plot(x, dev.new = FALSE)
-    invisible()
-}
 
-plot_dev <- getFromNamespace("plot_dev", "ggplot2")
+    px2in <- 0.010417
+
+    if (is.null(width))
+        width <- px2in(x$width)
+    if (is.null(height))
+        height <- px2in(x$height)
+
+    ggsave(filename = file, plot = x,
+           width = width,
+           height = height,
+           ...)
+}
 
 
 ##' Setting meme parameter
@@ -134,7 +141,7 @@ print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, 
     }
 
     ds <- dev.size() # w & h
-    h <- ds[1] * x$height/x$width
+    h <- ds[1] * asp(x)
     vjust <- (h*vjust + (ds[2]-h)/2)/ds[2]
 
     gp <- gpar(col = color, fontfamily = font, cex = size)
@@ -154,26 +161,14 @@ print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, 
     invisible(x)
 }
 
+##' @method grid.draw meme
+##' @export
+grid.draw.meme <- function(x, recording = TRUE) {
+    print(x)
+}
 
 ##' @rdname print.meme
 ##' @method plot meme
 ##' @export
 plot.meme <- print.meme
-
-##' aspect ratio of meme
-##'
-##'
-##' @title asp
-##' @param x meme object
-##' @return asp ratio
-##' @export
-##' @author guangchuang yu
-asp <- function(x) {
-    x$height/x$width
-}
-
-
-##' @importFrom ggplot2 aes
-##' @export
-ggplot2::aes
 
