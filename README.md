@@ -15,7 +15,7 @@ meme(u, "code", "all the things!")
 `meme_save`
 -----------
 
-The `meme` output can be save as an object, and can be exported to file using `meme_save`, (similar to `ggsave` :smiley:):
+The `meme` output can be saved as an object, and can be exported to file using `meme_save` (similar to `ggsave` :smiley:):
 
 ``` r
 u2 <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
@@ -39,7 +39,7 @@ plot(x, size = 2, "happy friday!", "wait, sorry, it's monday", color = "firebric
 `+` method
 ----------
 
-Instead of using parameters explictely, Users can use `+ aes()` to set the plot parameter:
+Instead of using parameters in `plot() explictely, Users can use`+ aes()\` to set the plot parameter:
 
 ``` r
 x + aes(upper = "#barbarplots",
