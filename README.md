@@ -2,7 +2,7 @@
 `meme`
 ------
 
-Call \``meme` to add meme captions:
+Call `meme` to add meme captions:
 
 ``` r
 library(me2)

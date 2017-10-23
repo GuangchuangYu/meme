@@ -18,7 +18,7 @@ knitr::opts_chunk$set(fig.path = "Figs/",
 
 ## `meme`
 
-Call ``meme` to add meme captions:
+Call `meme` to add meme captions:
 
 
 ```{r fig.width=7, fig.height=3.9375}
