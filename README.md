@@ -18,7 +18,7 @@ x
 meme_save(x, file="Figs/meme.png")
 ```
 
-![](Figs/meme.png)
+<img src="Figs/meme.png" width="672"/>
 
 Users can `plot` the `meme` output and change the caption or other parameters in real time.
 
