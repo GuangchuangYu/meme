@@ -115,6 +115,7 @@ plot_dev <- getFromNamespace("plot_dev", "ggplot2")
 ##' @param ... other arguments not used by this method
 ##' @importFrom grDevices dev.list
 ##' @importFrom grDevices dev.off
+##' @importFrom grDevices dev.size
 print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, lower = NULL, dev.new = TRUE, vjust=.1, ...) {
     if (is.null(upper))
         upper <- x$upper
@@ -132,18 +133,22 @@ print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, 
         size <- x$height/250
     }
 
+    ds <- dev.size() # w & h
+    h <- ds[1] * x$height/x$width
+    vjust <- (h*vjust + (ds[2]-h)/2)/ds[2]
+
     gp <- gpar(col = color, fontfamily = font, cex = size)
     upperGrob <- textGrob(toupper(upper), gp = gp, vp = viewport(y=1-vjust))
     lowerGrob <- textGrob(toupper(lower), gp = gp, vp = viewport(y=vjust))
     meme <- gList(x$imageGrob, upperGrob, lowerGrob)
 
-    if (is.null(knitr::opts_knit$get("out.format"))) {
-        if (dev.new) {
-            if (!is.null(dev.list()))
-                tryCatch(dev.off(), error = function(e) NULL)
-            dev.new(width=7, height=7*x$height/x$width, noRStudioGD = TRUE)
-        }
-    }
+    ## if (is.null(knitr::opts_knit$get("out.format"))) {
+    ##     if (dev.new) {
+    ##         if (!is.null(dev.list()))
+    ##             tryCatch(dev.off(), error = function(e) NULL)
+    ##         dev.new(width=7, height=7*x$height/x$width, noRStudioGD = TRUE)
+    ##     }
+    ## }
 
     grid.draw(meme)
     invisible(x)
