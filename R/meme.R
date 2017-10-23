@@ -8,7 +8,6 @@
 ##' @param size size of text
 ##' @param color color of text
 ##' @param font font family of text
-##' @param plot boolean, one of TRUE or FALSE
 ##' @return grob object
 ##' @importFrom magick image_read
 ##' @importFrom magick image_info
@@ -26,7 +25,7 @@
 ##' meme(u, "code", "all the things!")
 ##' }
 ##' @author guangchuang yu
-meme <- function(img, upper="", lower="", size="auto", color="white", font="Helvetica", plot=TRUE) {
+meme <- function(img, upper="", lower="", size="auto", color="white", font="Helvetica") {
     x <- image_read(img)
     info <- image_info(x)
 
@@ -37,10 +36,6 @@ meme <- function(img, upper="", lower="", size="auto", color="white", font="Helv
                 upper=upper, lower=lower,
                 size = size, color = color, font = font)
     class(res) <- "meme"
-
-    if (plot) {
-        plot(res)
-    }
 
     invisible(res)
 }
@@ -72,20 +67,42 @@ meme_save <- function(x, file="meme.png", device=NULL, dpi = 300) {
 plot_dev <- getFromNamespace("plot_dev", "ggplot2")
 
 
-##' @method print meme
+##' Setting meme parameter
+##'
+##'
+##' @rdname meme-add
+##' @param e1 meme object
+##' @param e2 aes()
+##' @method + meme
 ##' @export
-print.meme <- function(x, ...) {
-    msg <- paste0("meme:\n  image souce:  ", x$img,
-                  "\n  caption:\n    upper:  ", x$upper,
-                  "\n    lower:  ", x$lower)
-    message(msg)
+"+.meme" <- function(e1, e2) {
+    params <- as.list(e2)
+    names(params)[names(params) == "colour"] <- "color"
+    params <- params[names(params) %in% names(e1)]
+    for (i in seq_along(params))
+        e1[names(params)[i]] <- as.character(params[[i]])
+    e1
 }
 
+##' @rdname meme-add
+##' @export
+"%+%" <- "%+.meme"
 
-##' plot method for meme object
+
+## ##' @method print meme
+## ##' @export
+## print.meme <- function(x, ...) {
+##     msg <- paste0("meme:\n  image souce:  ", x$img,
+##                   "\n  caption:\n    upper:  ", x$upper,
+##                   "\n    lower:  ", x$lower)
+##     message(msg)
+## }
+
+
+##' print method for meme object
 ##'
 ##'
-##' @method plot meme
+##' @method print meme
 ##' @export
 ##' @param x meme object
 ##' @param size size of text
@@ -98,7 +115,7 @@ print.meme <- function(x, ...) {
 ##' @param ... other arguments not used by this method
 ##' @importFrom grDevices dev.list
 ##' @importFrom grDevices dev.off
-plot.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, lower = NULL, dev.new = TRUE, vjust=.1, ...) {
+print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, lower = NULL, dev.new = TRUE, vjust=.1, ...) {
     if (is.null(upper))
         upper <- x$upper
     if (is.null(lower))
@@ -126,10 +143,16 @@ plot.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, l
         if (dev.new) {
             if (!is.null(dev.list()))
                 tryCatch(dev.off(), error = function(e) NULL)
-            dev.new(width=7, height=7*x$height/x$width)
+            dev.new(width=7, height=7*x$height/x$width, noRStudioGD = TRUE)
         }
     }
 }
+
+
+##' @rdname print.meme
+##' @method plot meme
+##' @export
+plot.meme <- print.meme
 
 ##' aspect ratio of meme
 ##'
@@ -142,3 +165,9 @@ plot.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, l
 asp <- function(x) {
     x$height/x$width
 }
+
+
+##' @importFrom ggplot2 aes
+##' @export
+ggplot2::aes
+

@@ -5,7 +5,7 @@
 \title{meme}
 \usage{
 meme(img, upper = "", lower = "", size = "auto", color = "white",
-  font = "Helvetica", plot = TRUE)
+  font = "Helvetica")
 }
 \arguments{
 \item{img}{path or url}
@@ -19,8 +19,6 @@ meme(img, upper = "", lower = "", size = "auto", color = "white",
 \item{color}{color of text}
 
 \item{font}{font family of text}
-
-\item{plot}{boolean, one of TRUE or FALSE}
 }
 \value{
 grob object
