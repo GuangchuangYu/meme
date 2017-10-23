@@ -5,10 +5,12 @@
 Call `meme` to add meme captions:
 
 ``` r
-library(me2)
+library(meme)
 u <- "http://www.happyfamilyneeds.com/wp-content/uploads/2017/08/angry8.jpg"
 meme(u, "code", "all the things!")
 ```
+
+![](Figs/unnamed-chunk-2-1.png)
 
 The `meme` output can be save as an object, and can be exported to file using `meme_save`, (similar to `ggsave` :smiley:):
 
@@ -53,3 +55,5 @@ multi-language support
 ``` r
 meme(u, "卧槽", "听说你想用中文", font="STHeiti")
 ```
+
+![](Figs/unnamed-chunk-6-1.png)

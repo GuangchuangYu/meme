@@ -31,13 +31,13 @@ meme <- function(img, upper="", lower="", size="auto", color="white", font="Helv
 
     imageGrob <- rasterGrob(x)
 
-    res <- list(img = img, imageGrob = imageGrob,
-                width = info$width, height = info$height,
-                upper=upper, lower=lower,
-                size = size, color = color, font = font)
-    class(res) <- "meme"
-
-    invisible(res)
+    p <- structure(
+        list(img = img, imageGrob = imageGrob,
+             width = info$width, height = info$height,
+             upper=upper, lower=lower,
+             size = size, color = color, font = font),
+        class = "meme")
+    p
 }
 
 ##' save meme plot
@@ -86,11 +86,11 @@ plot_dev <- getFromNamespace("plot_dev", "ggplot2")
 
 ##' @rdname meme-add
 ##' @export
-"%+%" <- "%+.meme"
+"%+%" <- `+.meme`
 
 
-## ##' @method print meme
-## ##' @export
+## ## @method print meme
+## ## @export
 ## print.meme <- function(x, ...) {
 ##     msg <- paste0("meme:\n  image souce:  ", x$img,
 ##                   "\n  caption:\n    upper:  ", x$upper,
@@ -135,9 +135,7 @@ print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, 
     gp <- gpar(col = color, fontfamily = font, cex = size)
     upperGrob <- textGrob(toupper(upper), gp = gp, vp = viewport(y=1-vjust))
     lowerGrob <- textGrob(toupper(lower), gp = gp, vp = viewport(y=vjust))
-
     meme <- gList(x$imageGrob, upperGrob, lowerGrob)
-    on.exit(grid.draw(meme))
 
     if (is.null(knitr::opts_knit$get("out.format"))) {
         if (dev.new) {
@@ -146,6 +144,9 @@ print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, 
             dev.new(width=7, height=7*x$height/x$width, noRStudioGD = TRUE)
         }
     }
+
+    grid.draw(meme)
+    invisible(x)
 }
 
 

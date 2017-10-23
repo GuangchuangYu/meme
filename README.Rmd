@@ -12,7 +12,7 @@ html_preview: false
 ```{r include=FALSE}
 knitr::opts_chunk$set(fig.path = "Figs/",
                       warning = FALSE,
-                      message = FALSE)
+                      message = TRUE)
 ```
 
 
@@ -22,7 +22,7 @@ Call `meme` to add meme captions:
 
 
 ```{r fig.width=7, fig.height=3.9375}
-library(me2)
+library(meme)
 u <- "http://www.happyfamilyneeds.com/wp-content/uploads/2017/08/angry8.jpg"
 meme(u, "code", "all the things!")
 ```
@@ -59,6 +59,7 @@ plot(x, size = 2, "happy friday!", "wait, sorry, it's monday", color = "firebric
 
 Instead of using parameters explictely, Users can use `+ aes()` to set the plot parameter:
 
+
 ```{r fig.width=7, fig.height = 3.94}
 x + aes(upper = "#barbarplots",
         lower = "friends don't let friends make bar plots",
@@ -67,6 +68,9 @@ x + aes(upper = "#barbarplots",
 
 ## multi-language support
 
+
 ```{r fig.width=7, fig.height=3.9375}
 meme(u, "卧槽", "听说你想用中文", font="STHeiti")
 ```
+
+
