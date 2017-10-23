@@ -89,9 +89,9 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
     e1
 }
 
-##' @rdname meme-add
-##' @export
-"%+%" <- `+.meme`
+## ##' @rdname meme-add
+## ##' @export
+## "%+%" <- `+.meme`
 
 
 ## ## @method print meme

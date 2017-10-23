@@ -49,6 +49,14 @@ x + aes(upper = "#barbarplots",
 
 ![](Figs/unnamed-chunk-5-1.png)
 
+or using `+ list()`. The following command will also generate the figure displayed above.
+
+``` r
+x + list(upper = "#barbarplots",
+        lower = "friends don't let friends make bar plots",
+        color = "firebrick", font = "Courier", size=1.5)
+```
+
 multi-language support
 ----------------------
 
@@ -58,4 +66,4 @@ I didn't do anything about it. Multi-language was supported internally. Just sim
 meme(u, "卧槽", "听说你想用中文", font="STHeiti")
 ```
 
-![](Figs/unnamed-chunk-6-1.png)
+![](Figs/unnamed-chunk-7-1.png)

@@ -2,12 +2,9 @@
 % Please edit documentation in R/meme.R
 \name{+.meme}
 \alias{+.meme}
-\alias{\%+\%}
 \title{Setting meme parameter}
 \usage{
 \method{+}{meme}(e1, e2)
-
-e1 \%+\% e2
 }
 \arguments{
 \item{e1}{meme object}

@@ -66,6 +66,16 @@ x + aes(upper = "#barbarplots",
         color = firebrick, font = Courier, size=1.5)
 ```
 
+or using `+ list()`. The following command will also generate the figure
+displayed above.
+
+```{r fig.width=7, fig.height = 3.94, eval=FALSE}
+x + list(upper = "#barbarplots",
+        lower = "friends don't let friends make bar plots",
+        color = "firebrick", font = "Courier", size=1.5)
+```
+
+
 ## multi-language support
 
 I didn't do anything about it. Multi-language was supported internally. Just
