@@ -30,8 +30,8 @@ The `meme` output can be save as an object, and can be exported to file using `m
 
 
 ```{r}
-u <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
-x <- meme(u, "please", "tell me more", plot=FALSE)
+u2 <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
+x <- meme(u2, "please", "tell me more", plot=FALSE)
 x
 meme_save(x, file="Figs/meme.png")
 ```
@@ -45,4 +45,8 @@ real time.
 
 ```{r fig.width=7, fig.height = 3.94}
 plot(x, size = 2, "happy friday!", "wait, sorry, it's monday", color = "firebrick", font = "Courier")
+```
+
+```{r fig.width=7, fig.height=3.9375}
+meme(u, "卧槽", "听说你想用中文", font="STHeiti")
 ```

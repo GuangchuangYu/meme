@@ -12,8 +12,8 @@ meme(u, "code", "all the things!")
 The `meme` output can be save as an object, and can be exported to file using `meme_save`:
 
 ``` r
-u <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
-x <- meme(u, "please", "tell me more", plot=FALSE)
+u2 <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
+x <- meme(u2, "please", "tell me more", plot=FALSE)
 x
 meme_save(x, file="Figs/meme.png")
 ```
@@ -27,3 +27,9 @@ plot(x, size = 2, "happy friday!", "wait, sorry, it's monday", color = "firebric
 ```
 
 ![](Figs/unnamed-chunk-4-1.png)
+
+``` r
+meme(u, "卧槽", "听说你想用中文", font="STHeiti")
+```
+
+![](Figs/unnamed-chunk-5-1.png)
