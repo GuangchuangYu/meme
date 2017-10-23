@@ -111,15 +111,29 @@ plot.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, l
     }
 
     gp <- gpar(col = color, fontfamily = font, cex = size)
-    upperGrob <- textGrob(toupper(upper), gp = gp, vp = viewport(y=.8))
+    upperGrob <- textGrob(toupper(upper), gp = gp, vp = viewport(y=.9))
     lowerGrob <- textGrob(toupper(lower), gp = gp, vp = viewport(y=.1))
 
     meme <- gList(x$imageGrob, upperGrob, lowerGrob)
 
-    if (dev.new) {
-        if (!is.null(dev.list()))
-            dev.off()
-        dev.new(width=7, height=7*x$height/x$width)
+    if (is.null(knitr::opts_knit$get("out.format"))) {
+        if (dev.new) {
+            if (!is.null(dev.list()))
+                tryCatch(dev.off(), error = function(e) NULL)
+            dev.new(width=7, height=7*x$height/x$width)
+        }
     }
     grid.draw(meme)
+}
+
+##' aspect ratio of meme
+##'
+##'
+##' @title asp
+##' @param x meme object
+##' @return asp ratio
+##' @export
+##' @author guangchuang yu
+asp <- function(x) {
+    x$height/x$width
 }
