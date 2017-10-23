@@ -13,6 +13,7 @@ html_preview: false
 knitr::opts_chunk$set(fig.path = "Figs/",
                       warning = FALSE,
                       message = TRUE)
+unlink("Figs/", recursive=T)
 ```
 
 
