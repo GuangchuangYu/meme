@@ -60,10 +60,14 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
         stop("x should be an instance of 'meme'")
     }
 
-    if (is.null(width))
+    if (is.null(width) && is.null(height)) {
         width <- px2in(x$width)
-    if (is.null(height))
         height <- px2in(x$height)
+    } else if (is.null(width)) {
+        width <- height / asp(x)
+    } else {
+        height <- width * asp(x)
+    }
 
     ggsave(filename = file, plot = x,
            width = width,
