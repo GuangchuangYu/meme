@@ -25,26 +25,20 @@ meme <- function(img, upper="", lower="", size="auto", color="white", font="Helv
     x <- image_read(img)
     info <- image_info(x)
 
-    if (size == "auto") {
-        size <- info$height/250
-    }
+    imageGrob <- rasterGrob(x)
 
-    gp <- gpar(col = color, fontfamily = font, cex = size)
-    upperGrob <- textGrob(toupper(upper), gp = gp, vp = viewport(y=.8))
-    lowerGrob <- textGrob(toupper(lower), gp = gp, vp = viewport(y=.1))
-
-    meme <- gList(rasterGrob(x), upperGrob, lowerGrob)
+    res <- list(img = img, imageGrob = imageGrob,
+                width = info$width, height = info$height,
+                upper=upper, lower=lower,
+                size = size, color = color, font = font)
+    class(res) <- "meme"
 
     if (plot) {
-        dev.new(width=7, height=7*info$height/info$width)
-        grid.draw(meme)
+        plot(res)
     }
 
-    res <- list(img = img, gList=meme, width = info$width, height = info$height, upper=upper, lower=lower)
-    class(res) <- "meme"
     invisible(res)
 }
-
 
 ##' save meme plot
 ##'
@@ -56,6 +50,7 @@ meme <- function(img, upper="", lower="", size="auto", color="white", font="Helv
 ##' @param dpi dpi of the figure
 ##' @return NULL
 ##' @importFrom methods is
+##' @importFrom graphics plot
 ##' @export
 ##' @author guangchuang yu
 meme_save <- function(x, file="meme.png", device=NULL, dpi = 300) {
@@ -65,7 +60,7 @@ meme_save <- function(x, file="meme.png", device=NULL, dpi = 300) {
     dev <- plot_dev(device, file, dpi = dpi)
     dev(file = file, width = x$width * 0.010417, height = x$height * 0.010417)
     on.exit(utils::capture.output(grDevices::dev.off()))
-    grid.draw(x$gList)
+    plot(x, dev.new = FALSE)
     invisible()
 }
 
@@ -80,4 +75,51 @@ print.meme <- function(x, ...) {
                   "\n    lower:  ", x$lower)
     #"\n--> use `meme_save()` to export the object to figure")
     message(msg)
+}
+
+
+##' plot method for meme object
+##'
+##'
+##' @method plot meme
+##' @export
+##' @param x meme object
+##' @param size size of text
+##' @param color color of text
+##' @param font font family of text
+##' @param upper upper text
+##' @param lower lower text
+##' @param dev.new wheter open new device
+##' @param ... other arguments not used by this method
+##' @importFrom grDevices dev.list
+##' @importFrom grDevices dev.off
+plot.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, lower = NULL, dev.new = TRUE, ...) {
+    if (is.null(upper))
+        upper <- x$upper
+    if (is.null(lower))
+        lower <- x$lower
+
+    if (is.null(size))
+        size <- x$size
+    if (is.null(color))
+        color <- x$color
+    if (is.null(font))
+        font <- x$font
+
+    if (size == "auto") {
+        size <- x$height/250
+    }
+
+    gp <- gpar(col = color, fontfamily = font, cex = size)
+    upperGrob <- textGrob(toupper(upper), gp = gp, vp = viewport(y=.8))
+    lowerGrob <- textGrob(toupper(lower), gp = gp, vp = viewport(y=.1))
+
+    meme <- gList(x$imageGrob, upperGrob, lowerGrob)
+
+    if (dev.new) {
+        if (!is.null(dev.list()))
+            dev.off()
+        dev.new(width=7, height=7*x$height/x$width)
+    }
+    grid.draw(meme)
 }

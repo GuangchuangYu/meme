@@ -1,13 +1,14 @@
 Package: me2
 Title: Create Meme
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
 Description: Create Meme in R.
 Depends: R (>= 3.4.2)
 Imports:
     ggplot2,
-    grid,
+    graphics,
     grDevices,
+    grid,
     magick,
     methods,
     svglite
