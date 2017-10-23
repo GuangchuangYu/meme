@@ -5,7 +5,7 @@
 \title{meme}
 \usage{
 meme(img, upper = "", lower = "", size = "auto", color = "white",
-  font = "Helvetica")
+  font = "Helvetica", vjust = 0.1)
 }
 \arguments{
 \item{img}{path or url}
@@ -19,6 +19,8 @@ meme(img, upper = "", lower = "", size = "auto", color = "white",
 \item{color}{color of text}
 
 \item{font}{font family of text}
+
+\item{vjust}{vertical adjustment of captions}
 }
 \value{
 grob object

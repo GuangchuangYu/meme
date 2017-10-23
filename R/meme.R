@@ -8,6 +8,7 @@
 ##' @param size size of text
 ##' @param color color of text
 ##' @param font font family of text
+##' @param vjust vertical adjustment of captions
 ##' @return grob object
 ##' @importFrom magick image_read
 ##' @importFrom magick image_info
@@ -23,7 +24,7 @@
 ##' u <- "http://www.happyfamilyneeds.com/wp-content/uploads/2017/08/angry8.jpg"
 ##' meme(u, "code", "all the things!")
 ##' @author guangchuang yu
-meme <- function(img, upper="", lower="", size="auto", color="white", font="Helvetica") {
+meme <- function(img, upper="", lower="", size="auto", color="white", font="Helvetica", vjust = .1) {
     x <- image_read(img)
     info <- image_info(x)
 
@@ -33,8 +34,9 @@ meme <- function(img, upper="", lower="", size="auto", color="white", font="Helv
         list(img = img, imageGrob = imageGrob,
              width = info$width, height = info$height,
              upper=upper, lower=lower,
-             size = size, color = color, font = font),
-        class = "meme")
+             size = size, color = color,
+             font = font, vjust = vjust),
+        class = c("meme", "recordedplot"))
     p
 }
 
@@ -113,13 +115,14 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
 ##' @param font font family of text
 ##' @param upper upper text
 ##' @param lower lower text
-##' @param dev.new wheter open new device
 ##' @param vjust vertical adjustment ratio
 ##' @param ... other arguments not used by this method
 ##' @importFrom grDevices dev.list
 ##' @importFrom grDevices dev.off
 ##' @importFrom grDevices dev.size
-print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, lower = NULL, dev.new = TRUE, vjust=.1, ...) {
+##' @importFrom grDevices dev.interactive
+##' @importFrom grid grid.newpage
+print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, lower = NULL, vjust=NULL, ...) {
     if (is.null(upper))
         upper <- x$upper
     if (is.null(lower))
@@ -135,6 +138,8 @@ print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, 
     if (size == "auto") {
         size <- x$height/250
     }
+    if (is.null(vjust))
+        vjust <- x$vjust
 
     ds <- dev.size() # w & h
     h <- ds[1] * asp(x)
@@ -145,13 +150,8 @@ print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, 
     lowerGrob <- textGrob(toupper(lower), gp = gp, vp = viewport(y=vjust))
     meme <- gList(x$imageGrob, upperGrob, lowerGrob)
 
-    ## if (is.null(knitr::opts_knit$get("out.format"))) {
-    ##     if (dev.new) {
-    ##         if (!is.null(dev.list()))
-    ##             tryCatch(dev.off(), error = function(e) NULL)
-    ##         dev.new(width=7, height=7*x$height/x$width, noRStudioGD = TRUE)
-    ##     }
-    ## }
+    if (dev.interactive())
+        grid.newpage()
 
     grid.draw(meme)
     invisible(x)
@@ -168,3 +168,13 @@ grid.draw.meme <- function(x, recording = TRUE) {
 ##' @export
 plot.meme <- print.meme
 
+##' @method grid.echo meme
+##' @importFrom gridGraphics grid.echo
+##' @export
+grid.echo.meme <- function(x = NULL, newpage = TRUE, prefix = NULL) {
+    if (!is.null(dev.list()))
+        tryCatch(dev.off(), error = function(e) NULL)
+    dev.new(width=7, height=7*x$height/x$width, noRStudioGD = TRUE)
+
+    grid.draw(x)
+}

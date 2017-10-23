@@ -6,10 +6,10 @@
 \title{print method for meme object}
 \usage{
 \method{print}{meme}(x, size = NULL, color = NULL, font = NULL,
-  upper = NULL, lower = NULL, dev.new = TRUE, vjust = 0.1, ...)
+  upper = NULL, lower = NULL, vjust = NULL, ...)
 
 \method{plot}{meme}(x, size = NULL, color = NULL, font = NULL,
-  upper = NULL, lower = NULL, dev.new = TRUE, vjust = 0.1, ...)
+  upper = NULL, lower = NULL, vjust = NULL, ...)
 }
 \arguments{
 \item{x}{meme object}
@@ -23,8 +23,6 @@
 \item{upper}{upper text}
 
 \item{lower}{lower text}
-
-\item{dev.new}{wheter open new device}
 
 \item{vjust}{vertical adjustment ratio}
 

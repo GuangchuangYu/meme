@@ -1,6 +1,6 @@
 Package: meme
 Title: Create Meme
-Version: 0.0.5
+Version: 0.0.6
 Authors@R: person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"))
 Description: The word 'Meme' was originated from the book, 'The Selfish Gene', authored by Richard Dawkins (1976).
              It is a unit of culture that is passed from one generation to another and correlates to the gene, the unit of physical heredity.
@@ -13,6 +13,7 @@ Imports:
     graphics,
     grDevices,
     grid,
+    gridGraphics,
     magick,
     methods
 Encoding: UTF-8

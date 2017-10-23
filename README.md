@@ -63,7 +63,17 @@ multi-language support
 I didn't do anything about it. Multi-language was supported internally. Just simply select a font for your language.
 
 ``` r
-meme(u, "卧槽", "听说你想用中文", font="STHeiti")
+y <- meme(u, "卧槽", "听说你想用中文", font="STHeiti")
+y
 ```
 
 ![](docs/Figs/unnamed-chunk-7-1.png)
+
+cowplot support
+---------------
+
+``` r
+cowplot::plot_grid(x, y, ncol=1, labels = c("A", "B"))
+```
+
+![](docs/Figs/unnamed-chunk-8-1.png)

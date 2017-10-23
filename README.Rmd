@@ -83,7 +83,13 @@ simply select a font for your language.
 
 
 ```{r fig.width=7, fig.height=3.9375}
-meme(u, "卧槽", "听说你想用中文", font="STHeiti")
+y <- meme(u, "卧槽", "听说你想用中文", font="STHeiti")
+y
 ```
 
+## cowplot support
+
+```{r fig.width=7, fig.height=7.88}
+cowplot::plot_grid(x, y, ncol=1, labels = c("A", "B"))
+```
 
