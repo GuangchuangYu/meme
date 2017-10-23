@@ -20,10 +20,10 @@ The `meme` output can be save as an object, and can be exported to file using `m
 ``` r
 u2 <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
 x <- meme(u2, "please", "tell me more")
-meme_save(x, file="Figs/meme.png")
+meme_save(x, file="docs/Figs/meme.png")
 ```
 
-<img src="Figs/meme.png" width="672"/>
+<img src="docs/Figs/meme.png" width="672"/>
 
 `plot` method
 -------------

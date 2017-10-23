@@ -13,7 +13,7 @@ html_preview: false
 knitr::opts_chunk$set(fig.path = "docs/Figs/",
                       warning = FALSE,
                       message = TRUE)
-unlink("docs/Figs/", recursive=T)
+unlink("docs/Figs", recursive=TRUE)
 ```
 
 
@@ -28,7 +28,6 @@ u <- "http://www.happyfamilyneeds.com/wp-content/uploads/2017/08/angry8.jpg"
 meme(u, "code", "all the things!")
 ```
 
-
 ## `meme_save`
 
 The `meme` output can be save as an object, and can be exported to file using
@@ -38,11 +37,11 @@ The `meme` output can be save as an object, and can be exported to file using
 ```{r message=TRUE}
 u2 <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
 x <- meme(u2, "please", "tell me more")
-meme_save(x, file="Figs/meme.png")
+meme_save(x, file="docs/Figs/meme.png")
 ```
 
 
-<img src="Figs/meme.png" width="672"/>
+<img src="docs/Figs/meme.png" width="672"/>
 
 
 ## `plot` method
