@@ -60,8 +60,6 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
         stop("x should be an instance of 'meme'")
     }
 
-    px2in <- 0.010417
-
     if (is.null(width))
         width <- px2in(x$width)
     if (is.null(height))
