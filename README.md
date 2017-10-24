@@ -39,7 +39,7 @@ plot(x, size = 2, "happy friday!", "wait, sorry, it's monday", color = "firebric
 `+` method
 ----------
 
-Instead of using parameters in `plot() explictely, Users can use`+ aes()\` to set the plot parameter:
+Instead of using parameters in `plot()` explictely, Users can use `+ aes()` to set the plot parameters:
 
 ``` r
 x + aes(upper = "#barbarplots",
