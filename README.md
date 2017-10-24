@@ -69,6 +69,38 @@ y
 
 ![](docs/Figs/unnamed-chunk-7-1.png)
 
+grid support
+------------
+
+``` r
+library(grid)
+mm <- meme(u, "code", "all the things!", size=.3, color='firebrick')
+
+grid.newpage()
+pushViewport(viewport(width=.9, height=.9, xscale = c(-0.1*pi, 2.1*pi), yscale = c(0, 1)))
+grid.rect(gp = gpar(lty="dashed"))
+
+xx <- seq(0, 2*pi , length.out=10)
+yy <- sin(xx)
+
+for (i in seq_along(xx)) {
+    vp <- viewport(x = xx[i]/(2*pi), y = (yy[i]-min(yy))/2, width=.05, height=.05)
+    print(mm, vp = vp)
+}
+```
+
+![](docs/Figs/unnamed-chunk-8-1.png)
+
+ggplot support
+--------------
+
+``` r
+library(ggplot2)
+qplot(xx, yy) + geom_subview(mm, x = xx, y = yy, width=.3, height=.15)
+```
+
+![](docs/Figs/unnamed-chunk-9-1.png)
+
 cowplot support
 ---------------
 
@@ -76,4 +108,4 @@ cowplot support
 cowplot::plot_grid(x, y, ncol=1, labels = c("A", "B"))
 ```
 
-![](docs/Figs/unnamed-chunk-8-1.png)
+![](docs/Figs/unnamed-chunk-10-1.png)

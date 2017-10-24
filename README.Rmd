@@ -14,6 +14,10 @@ knitr::opts_chunk$set(fig.path = "docs/Figs/",
                       warning = FALSE,
                       message = TRUE)
 unlink("docs/Figs", recursive=TRUE)
+library(grid)
+library(ggplot2)
+library(ggimage)
+library(meme)
 ```
 
 
@@ -85,6 +89,33 @@ simply select a font for your language.
 ```{r fig.width=7, fig.height=3.9375}
 y <- meme(u, "卧槽", "听说你想用中文", font="STHeiti")
 y
+```
+
+## grid support
+
+```{r fig.width=7}
+library(grid)
+mm <- meme(u, "code", "all the things!", size=.3, color='firebrick')
+
+grid.newpage()
+pushViewport(viewport(width=.9, height=.9, xscale = c(-0.1*pi, 2.1*pi), yscale = c(0, 1)))
+grid.rect(gp = gpar(lty="dashed"))
+
+xx <- seq(0, 2*pi , length.out=10)
+yy <- sin(xx)
+
+for (i in seq_along(xx)) {
+    vp <- viewport(x = xx[i]/(2*pi), y = (yy[i]-min(yy))/2, width=.05, height=.05)
+    print(mm, vp = vp)
+}
+```
+
+
+## ggplot support
+
+```{r fig.width=7}
+library(ggplot2)
+qplot(xx, yy) + geom_subview(mm, x = xx, y = yy, width=.3, height=.15)
 ```
 
 ## cowplot support

@@ -88,6 +88,7 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
 ##' @param e1 meme object
 ##' @param e2 aes()
 ##' @method + meme
+##' @importFrom utils modifyList
 ##' @export
 ##' @examples
 ##' f <- system.file("icon.png", package="meme")
@@ -96,9 +97,7 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
     params <- as.list(e2)
     names(params)[names(params) == "colour"] <- "color"
     params <- params[names(params) %in% names(e1)]
-    for (i in seq_along(params))
-        e1[names(params)[i]] <- as.character(params[[i]])
-    e1
+    modifyList(e1, params)
 }
 
 ## ##' @rdname meme-add
@@ -116,84 +115,4 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
 ## }
 
 
-##' print method for meme object
-##'
-##'
-##' @method print meme
-##' @export
-##' @param x meme object
-##' @param size size of text
-##' @param color color of text
-##' @param font font family of text
-##' @param upper upper text
-##' @param lower lower text
-##' @param vjust vertical adjustment ratio
-##' @param ... other arguments not used by this method
-##' @importFrom grDevices dev.list
-##' @importFrom grDevices dev.off
-##' @importFrom grDevices dev.size
-##' @importFrom grDevices dev.interactive
-##' @importFrom grid grid.newpage
-##' @examples
-##' f <- system.file("icon.png", package="meme")
-##' x <- meme(f, "code", "all the things!")
-##' print(x)
-print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, lower = NULL, vjust=NULL, ...) {
-    if (is.null(upper))
-        upper <- x$upper
-    if (is.null(lower))
-        lower <- x$lower
 
-    if (is.null(size))
-        size <- x$size
-    if (is.null(color))
-        color <- x$color
-    if (is.null(font))
-        font <- x$font
-
-    if (size == "auto") {
-        size <- x$height/250
-    }
-    if (is.null(vjust))
-        vjust <- x$vjust
-
-    ds <- dev.size() # w & h
-    h <- ds[1] * asp(x)
-    vjust <- (h*vjust + (ds[2]-h)/2)/ds[2]
-
-    gp <- gpar(col = color, fontfamily = font, cex = size)
-    upperGrob <- textGrob(toupper(upper), gp = gp, vp = viewport(y=1-vjust))
-    lowerGrob <- textGrob(toupper(lower), gp = gp, vp = viewport(y=vjust))
-    meme <- gList(x$imageGrob, upperGrob, lowerGrob)
-
-    if (dev.interactive())
-        grid.newpage()
-
-    grid.draw(meme)
-    invisible(x)
-}
-
-
-##' @rdname print.meme
-##' @method plot meme
-##' @export
-plot.meme <- print.meme
-
-
-##' @method grid.draw meme
-##' @export
-grid.draw.meme <- function(x, recording = TRUE) {
-    print(x)
-}
-
-
-##' @method grid.echo meme
-##' @importFrom gridGraphics grid.echo
-##' @export
-grid.echo.meme <- function(x = NULL, newpage = TRUE, prefix = NULL) {
-    if (!is.null(dev.list()))
-        tryCatch(dev.off(), error = function(e) NULL)
-    dev.new(width=7, height=7*x$height/x$width, noRStudioGD = TRUE)
-
-    grid.draw(x)
-}
