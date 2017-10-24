@@ -32,10 +32,23 @@ u <- "http://www.happyfamilyneeds.com/wp-content/uploads/2017/08/angry8.jpg"
 meme(u, "code", "all the things!")
 ```
 
-## `meme_save`
+## The grammar of meme :smile:
+
+
+Not that useful, just to mimic `ggplot2`:
+
+
+```{r fig.width=7, fig.height=3.9375}
+mmplot(u) + mm_caption("calm down", "and RTFM", color="purple")
+```
+
+
+
+## `meme_save`: a meme version of `ggsave` :smiley:
 
 The `meme` output can be saved as an object, and can be exported to file using
-`meme_save` (similar to `ggsave` :smiley:):
+`meme_save`. `meme_save` helps user setting up
+the output figure aspect ratio and calls `ggsave` to export the figure:
 
 
 ```{r message=TRUE}

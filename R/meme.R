@@ -94,10 +94,40 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
 ##' f <- system.file("icon.png", package="meme")
 ##' meme(f, "code", "all the things!") + aes(color="firebrick")
 "+.meme" <- function(e1, e2) {
+    if (is(e2, "uneval"))
+        e2 <- as.character(e2)
     params <- as.list(e2)
     names(params)[names(params) == "colour"] <- "color"
+    params <- params[!sapply(params, is.null)]
     params <- params[names(params) %in% names(e1)]
     modifyList(e1, params)
+}
+
+
+##' plot the image for meme (captions to be added)
+##'
+##'
+##' @title mmplot
+##' @param x image file
+##' @return meme object
+##' @export
+##' @author guangchuang yu
+mmplot <- function(x) {
+    meme(x)
+}
+
+##' add caption layer for meme
+##'
+##'
+##' @title mm_caption
+##' @param upper upper caption
+##' @param lower lower caption
+##' @param ... additional parameters to set caption
+##' @return meme object
+##' @export
+##' @author guangchuang yu
+mm_caption <- function(upper=NULL, lower=NULL, ...) {
+    list(upper = upper, lower = lower, ...)
 }
 
 ## ##' @rdname meme-add

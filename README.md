@@ -12,10 +12,21 @@ meme(u, "code", "all the things!")
 
 ![](docs/Figs/unnamed-chunk-2-1.png)
 
-`meme_save`
------------
+The grammar of meme :smile:
+---------------------------
 
-The `meme` output can be saved as an object, and can be exported to file using `meme_save` (similar to `ggsave` :smiley:):
+Not that useful, just to mimic `ggplot2`:
+
+``` r
+mmplot(u) + mm_caption("calm down", "and RTFM", color="purple")
+```
+
+![](docs/Figs/unnamed-chunk-3-1.png)
+
+`meme_save`: a meme version of `ggsave` :smiley:
+------------------------------------------------
+
+The `meme` output can be saved as an object, and can be exported to file using `meme_save`. `meme_save` helps user setting up the output figure aspect ratio and calls `ggsave` to export the figure:
 
 ``` r
 u2 <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
@@ -34,7 +45,7 @@ Users can `plot` the `meme` output and change the caption or other parameters in
 plot(x, size = 2, "happy friday!", "wait, sorry, it's monday", color = "firebrick", font = "Courier")
 ```
 
-![](docs/Figs/unnamed-chunk-4-1.png)
+![](docs/Figs/unnamed-chunk-5-1.png)
 
 `+` method
 ----------
@@ -47,7 +58,7 @@ x + aes(upper = "#barbarplots",
         color = firebrick, font = Courier, size=1.5)
 ```
 
-![](docs/Figs/unnamed-chunk-5-1.png)
+![](docs/Figs/unnamed-chunk-6-1.png)
 
 or using `+ list()`. The following command will also generate the figure displayed above.
 
@@ -67,7 +78,7 @@ y <- meme(u, "卧槽", "听说你想用中文", font="STHeiti")
 y
 ```
 
-![](docs/Figs/unnamed-chunk-7-1.png)
+![](docs/Figs/unnamed-chunk-8-1.png)
 
 grid support
 ------------
@@ -89,7 +100,7 @@ for (i in seq_along(xx)) {
 }
 ```
 
-![](docs/Figs/unnamed-chunk-8-1.png)
+![](docs/Figs/unnamed-chunk-9-1.png)
 
 ggplot2 support
 ---------------
@@ -103,7 +114,7 @@ ggplot(d, aes(x, y)) + geom_line() +
     geom_subview(mm, x = xx, y = yy, width=.3, height=.15)
 ```
 
-![](docs/Figs/unnamed-chunk-9-1.png)
+![](docs/Figs/unnamed-chunk-10-1.png)
 
 ``` r
 ggplot(d, aes(x, y)) +
@@ -111,7 +122,7 @@ ggplot(d, aes(x, y)) +
     geom_point() + geom_line()
 ```
 
-![](docs/Figs/unnamed-chunk-9-2.png)
+![](docs/Figs/unnamed-chunk-10-2.png)
 
 cowplot support
 ---------------
@@ -120,4 +131,4 @@ cowplot support
 cowplot::plot_grid(x, y, ncol=1, labels = c("A", "B"))
 ```
 
-![](docs/Figs/unnamed-chunk-10-1.png)
+![](docs/Figs/unnamed-chunk-11-1.png)
