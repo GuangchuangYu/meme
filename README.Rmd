@@ -116,7 +116,7 @@ for (i in seq_along(xx)) {
 
 
 
-```{r fig.width=7}
+```{r fig.width=7, fig.height=4.06}
 library(ggplot2)
 library(ggimage)
 
