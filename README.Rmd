@@ -93,12 +93,13 @@ y
 
 ## grid support
 
+
 ```{r fig.width=7}
 library(grid)
 mm <- meme(u, "code", "all the things!", size=.3, color='firebrick')
 
 grid.newpage()
-pushViewport(viewport(width=.9, height=.9, xscale = c(-0.1*pi, 2.1*pi), yscale = c(0, 1)))
+pushViewport(viewport(width=.9, height=.9))
 grid.rect(gp = gpar(lty="dashed"))
 
 xx <- seq(0, 2*pi , length.out=10)
@@ -111,14 +112,26 @@ for (i in seq_along(xx)) {
 ```
 
 
-## ggplot support
+## ggplot2 support
+
+
 
 ```{r fig.width=7}
 library(ggplot2)
-qplot(xx, yy) + geom_subview(mm, x = xx, y = yy, width=.3, height=.15)
+library(ggimage)
+
+d <- data.frame(x = xx, y = yy)
+ggplot(d, aes(x, y)) + geom_line() +
+    geom_subview(mm, x = xx, y = yy, width=.3, height=.15)
+
+ggplot(d, aes(x, y)) +
+    geom_subview(mm+aes(size=3), x=0, y=0, width=Inf, height=Inf) +
+    geom_point() + geom_line()
 ```
 
+
 ## cowplot support
+
 
 ```{r fig.width=7, fig.height=7.88}
 cowplot::plot_grid(x, y, ncol=1, labels = c("A", "B"))
