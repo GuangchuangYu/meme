@@ -14,3 +14,7 @@
 \description{
 Setting meme parameter
 }
+\examples{
+f <- system.file("icon.png", package="meme")
+meme(f, "code", "all the things!") + aes(color="firebrick")
+}

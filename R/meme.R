@@ -21,8 +21,8 @@
 ##' @importFrom grDevices dev.new
 ##' @export
 ##' @examples
-##' u <- "http://www.happyfamilyneeds.com/wp-content/uploads/2017/08/angry8.jpg"
-##' meme(u, "code", "all the things!")
+##' f <- system.file("icon.png", package="meme")
+##' meme(f, "code", "all the things!", size=3)
 ##' @author guangchuang yu
 meme <- function(img, upper="", lower="", size="auto", color="white", font="Helvetica", vjust = .1) {
     x <- image_read(img)
@@ -54,6 +54,11 @@ meme <- function(img, upper="", lower="", size="auto", color="white", font="Helv
 ##' @importFrom graphics plot
 ##' @importFrom ggplot2 ggsave
 ##' @export
+##' @examples
+##' f <- system.file("icon.png", package="meme")
+##' x <- meme(f, "code", "all the things!")
+##' outfile <- tempfile(fileext = ".png")
+##' meme_save(x, outfile)
 ##' @author guangchuang yu
 meme_save <- function(x, file, width = NULL, height = NULL, ...) {
     if (!is(x, "meme")) {
@@ -84,6 +89,9 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
 ##' @param e2 aes()
 ##' @method + meme
 ##' @export
+##' @examples
+##' f <- system.file("icon.png", package="meme")
+##' meme(f, "code", "all the things!") + aes(color="firebrick")
 "+.meme" <- function(e1, e2) {
     params <- as.list(e2)
     names(params)[names(params) == "colour"] <- "color"
@@ -126,6 +134,10 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
 ##' @importFrom grDevices dev.size
 ##' @importFrom grDevices dev.interactive
 ##' @importFrom grid grid.newpage
+##' @examples
+##' f <- system.file("icon.png", package="meme")
+##' x <- meme(f, "code", "all the things!")
+##' print(x)
 print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, lower = NULL, vjust=NULL, ...) {
     if (is.null(upper))
         upper <- x$upper
@@ -161,16 +173,19 @@ print.meme <- function(x, size = NULL, color = NULL, font = NULL, upper = NULL, 
     invisible(x)
 }
 
+
+##' @rdname print.meme
+##' @method plot meme
+##' @export
+plot.meme <- print.meme
+
+
 ##' @method grid.draw meme
 ##' @export
 grid.draw.meme <- function(x, recording = TRUE) {
     print(x)
 }
 
-##' @rdname print.meme
-##' @method plot meme
-##' @export
-plot.meme <- print.meme
 
 ##' @method grid.echo meme
 ##' @importFrom gridGraphics grid.echo

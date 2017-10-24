@@ -15,6 +15,11 @@ asp ratio
 \description{
 aspect ratio of meme
 }
+\examples{
+f <- system.file("icon.png", package="meme")
+x <- meme(f, "meme", "produced by meme package")
+asp(x)
+}
 \author{
 guangchuang yu
 }

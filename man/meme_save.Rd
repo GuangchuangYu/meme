@@ -20,6 +20,12 @@ meme_save(x, file, width = NULL, height = NULL, ...)
 \description{
 save meme plot
 }
+\examples{
+f <- system.file("icon.png", package="meme")
+x <- meme(f, "code", "all the things!")
+outfile <- tempfile(fileext = ".png")
+meme_save(x, outfile)
+}
 \author{
 guangchuang yu
 }
