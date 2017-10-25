@@ -17,6 +17,12 @@ Imports:
     magick,
     methods,
     utils
+Suggests:
+    cowplot,
+    ggimage,
+    knitr,
+    prettydoc
+VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true

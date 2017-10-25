@@ -25,3 +25,6 @@ asp <- function(x) {
 ##' @export
 ggplot2::aes
 
+##' @importFrom ggplot2 ggsave
+##' @export
+ggplot2::ggsave

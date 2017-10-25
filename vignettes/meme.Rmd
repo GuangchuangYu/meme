@@ -1,23 +1,39 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
-html_preview: false
----
+title: "Create Meme in R"
+author: "\\
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+	Guangchuang Yu\\
+
+        School of Public Health, The University of Hong Kong"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    toc: true
+    theme: cayman
+    highlight: github
+  pdf_document:
+    toc: true
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{meme introduction}
+  %\VignetteDepends{ggplot2}
+  %\VignetteDepends{grid}
+  %\VignetteDepends{ggimage}
+  %\VignetteDepends{cowplot}
+  %\usepackage[utf8]{inputenc}
+---
 
 
 
 ```{r include=FALSE}
-knitr::opts_chunk$set(fig.path = "docs/Figs/",
-                      warning = FALSE,
+knitr::opts_chunk$set(warning = FALSE,
                       message = TRUE)
-unlink("docs/Figs", recursive=TRUE)
+
 library(grid)
 library(ggplot2)
 library(ggimage)
 library(meme)
+library(cowplot)
 ```
 
 
@@ -54,11 +70,9 @@ the output figure aspect ratio and calls `ggsave` to export the figure:
 ```{r message=TRUE}
 u2 <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
 x <- meme(u2, "please", "tell me more")
-meme_save(x, file="docs/Figs/meme.png")
+outfile <- tempfile(fileext=".png")
+meme_save(x, file=outfile)
 ```
-
-
-<img src="docs/Figs/meme.png" width="672"/>
 
 
 ## `plot` method
