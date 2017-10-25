@@ -15,6 +15,6 @@
 Setting meme parameter
 }
 \examples{
-f <- system.file("icon.png", package="meme")
+f <- system.file("angry8.jpg", package="meme")
 meme(f, "code", "all the things!") + aes(color="firebrick")
 }

@@ -22,7 +22,7 @@
 ##' @importFrom grid upViewport
 ##' @importFrom grid seekViewport
 ##' @examples
-##' f <- system.file("icon.png", package="meme")
+##' f <- system.file("angry8.jpg", package="meme")
 ##' x <- meme(f, "code", "all the things!")
 ##' print(x)
 print.meme <- function(x, size = NULL, color = NULL, font = NULL,

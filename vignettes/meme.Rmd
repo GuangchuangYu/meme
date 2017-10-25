@@ -44,23 +44,24 @@ Call `meme` to add meme captions:
 
 ```{r fig.width=7, fig.height=3.9375}
 library(meme)
-u <- "http://www.happyfamilyneeds.com/wp-content/uploads/2017/08/angry8.jpg"
+u <- system.file("angry8.jpg", package="meme")
 meme(u, "code", "all the things!")
 ```
 
-## The grammar of meme :smile:
+## The grammar of meme
 
 
 Not that useful, just to mimic `ggplot2`:
 
 
 ```{r fig.width=7, fig.height=3.9375}
-mmplot(u) + mm_caption("calm down", "and RTFM", color="purple")
+mmplot(u) + mm_caption("calm down", "and RTFM",
+                       font = "Impact", color="purple")
 ```
 
 
 
-## `meme_save`: a meme version of `ggsave` :smiley:
+## `meme_save`: a meme version of `ggsave`
 
 The `meme` output can be saved as an object, and can be exported to file using
 `meme_save`. `meme_save` helps user setting up
@@ -68,7 +69,7 @@ the output figure aspect ratio and calls `ggsave` to export the figure:
 
 
 ```{r message=TRUE}
-u2 <- "http://i0.kym-cdn.com/entries/icons/mobile/000/000/745/success.jpg"
+u2 <- system.file("success.jpg", package="meme")
 x <- meme(u2, "please", "tell me more")
 outfile <- tempfile(fileext=".png")
 meme_save(x, file=outfile)

@@ -29,8 +29,8 @@ grob object
 create meme
 }
 \examples{
-f <- system.file("icon.png", package="meme")
-meme(f, "code", "all the things!", size=3)
+f <- system.file("angry8.jpg", package="meme")
+meme(f, "code", "all the things!")
 }
 \author{
 guangchuang yu

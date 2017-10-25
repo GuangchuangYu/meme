@@ -21,8 +21,8 @@
 ##' @importFrom grDevices dev.new
 ##' @export
 ##' @examples
-##' f <- system.file("icon.png", package="meme")
-##' meme(f, "code", "all the things!", size=3)
+##' f <- system.file("angry8.jpg", package="meme")
+##' meme(f, "code", "all the things!")
 ##' @author guangchuang yu
 meme <- function(img, upper="", lower="", size="auto", color="white", font="Helvetica", vjust = .1) {
     x <- image_read(img)
@@ -55,7 +55,7 @@ meme <- function(img, upper="", lower="", size="auto", color="white", font="Helv
 ##' @importFrom ggplot2 ggsave
 ##' @export
 ##' @examples
-##' f <- system.file("icon.png", package="meme")
+##' f <- system.file("angry8.jpg", package="meme")
 ##' x <- meme(f, "code", "all the things!")
 ##' outfile <- tempfile(fileext = ".png")
 ##' meme_save(x, outfile)
@@ -91,7 +91,7 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
 ##' @importFrom utils modifyList
 ##' @export
 ##' @examples
-##' f <- system.file("icon.png", package="meme")
+##' f <- system.file("angry8.jpg", package="meme")
 ##' meme(f, "code", "all the things!") + aes(color="firebrick")
 "+.meme" <- function(e1, e2) {
     if (is(e2, "uneval"))

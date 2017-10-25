@@ -16,7 +16,7 @@ grob object
 convert meme to grob object
 }
 \examples{
-f <- system.file("icon.png", package="meme")
+f <- system.file("angry8.jpg", package="meme")
 x <- meme(f, "code", "all the things!")
 memeGrob(x)
 }
