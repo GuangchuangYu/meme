@@ -9,6 +9,8 @@
 ##' @param color color of text
 ##' @param font font family of text
 ##' @param vjust vertical adjustment of captions
+##' @param bgcolor background color of shadow text
+##' @param r ratio of shadow text
 ##' @return grob object
 ##' @importFrom magick image_read
 ##' @importFrom magick image_info
@@ -24,7 +26,8 @@
 ##' f <- system.file("angry8.jpg", package="meme")
 ##' meme(f, "code", "all the things!", font = "Helvetica")
 ##' @author guangchuang yu
-meme <- function(img, upper="", lower="", size="auto", color="white", font="Impact", vjust = .1) {
+meme <- function(img, upper="", lower="", size="auto", color="white", font="Impact",
+                 vjust = .1, bgcolor="black", r = 0.01) {
     x <- image_read(img)
     info <- image_info(x)
 
@@ -35,7 +38,8 @@ meme <- function(img, upper="", lower="", size="auto", color="white", font="Impa
              width = info$width, height = info$height,
              upper=upper, lower=lower,
              size = size, color = color,
-             font = font, vjust = vjust),
+             font = font, vjust = vjust,
+             bgcolor = bgcolor, r = r),
         class = c("meme", "recordedplot"))
     p
 }

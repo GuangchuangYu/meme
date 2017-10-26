@@ -6,12 +6,12 @@
 \title{print method for meme object}
 \usage{
 \method{print}{meme}(x, size = NULL, color = NULL, font = NULL,
-  upper = NULL, lower = NULL, vjust = NULL, newpage = is.null(vp),
-  vp = NULL, ...)
+  upper = NULL, lower = NULL, vjust = NULL, bgcolor = NULL, r = NULL,
+  newpage = is.null(vp), vp = NULL, ...)
 
 \method{plot}{meme}(x, size = NULL, color = NULL, font = NULL,
-  upper = NULL, lower = NULL, vjust = NULL, newpage = is.null(vp),
-  vp = NULL, ...)
+  upper = NULL, lower = NULL, vjust = NULL, bgcolor = NULL, r = NULL,
+  newpage = is.null(vp), vp = NULL, ...)
 }
 \arguments{
 \item{x}{meme object}
@@ -27,6 +27,10 @@
 \item{lower}{lower text}
 
 \item{vjust}{vertical adjustment ratio}
+
+\item{bgcolor}{background color of shadow text}
+
+\item{r}{ratio for shadow text}
 
 \item{newpage}{draw new (empty) page first?}
 

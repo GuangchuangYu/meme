@@ -5,7 +5,7 @@
 \title{meme}
 \usage{
 meme(img, upper = "", lower = "", size = "auto", color = "white",
-  font = "Impact", vjust = 0.1)
+  font = "Impact", vjust = 0.1, bgcolor = "black", r = 0.01)
 }
 \arguments{
 \item{img}{path or url}
@@ -21,6 +21,10 @@ meme(img, upper = "", lower = "", size = "auto", color = "white",
 \item{font}{font family of text}
 
 \item{vjust}{vertical adjustment of captions}
+
+\item{bgcolor}{background color of shadow text}
+
+\item{r}{ratio of shadow text}
 }
 \value{
 grob object

@@ -1,0 +1,18 @@
+CHANGES IN VERSION 0.0.7
+------------------------
+ o shadow text <2017-10-26, Thu>
+   + bgcolor = 'black' by default, can change to NULL to disable this feature
+   + r = 0.01 by default, increase/decrease the value to increase/decrease the shadow text
+ o change to using Impact font by default <2017-10-26, Thu>
+ o remove gridGraphics dependency for easy installation <2017-10-26, Thu>
+   + <https://stackoverflow.com/questions/46938429/installing-meme-package-in-r>
+ o mmplot and mm_caption to mimic the ggplot grammar for fun <2017-10-24, Tue>
+
+CHANGES IN VERSION 0.0.6
+------------------------
+ o initial release
+   + meme and meme_save
+   + print, plot and + method
+   + compatible with grid, ggplot2, ggimage and cowplot
+   + memeGrob to convert the meme object to grob
+   + asp function calculate the aspect ratio of image

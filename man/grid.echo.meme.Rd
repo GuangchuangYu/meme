@@ -24,7 +24,7 @@ using the solution <https://stackoverflow.com/a/18551959/3844636>
 to not importing grid.echo generics from gridGraphics for easy installation,
 since gridGraphics has system requirement of ImageMagick <https://github.com/cran/gridGraphics/blob/master/DESCRIPTION#L14>.
 
-this method is just a hack for making cowplot to support meme object.
+this method is just a hack for making cowplot to support meme object, and not used elsewhere.
 }
 \author{
 guangchuang yu

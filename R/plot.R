@@ -10,6 +10,8 @@
 ##' @param upper upper text
 ##' @param lower lower text
 ##' @param vjust vertical adjustment ratio
+##' @param bgcolor background color of shadow text
+##' @param r ratio for shadow text
 ##' @param newpage draw new (empty) page first?
 ##' @param vp viewport to draw plot in
 ##' @param ... other arguments not used by this method
@@ -27,12 +29,14 @@
 ##' print(x)
 print.meme <- function(x, size = NULL, color = NULL, font = NULL,
                        upper = NULL, lower = NULL, vjust=NULL,
+                       bgcolor = NULL, r = NULL,
                        newpage = is.null(vp), vp = NULL, ...) {
 
     ## R CMD check will throw error when using default font 'Impact' in Rd examples
 
     x <- x + list(size = size, color = color,
                   font = font, vjust = vjust,
+                  bgcolor = bgcolor, r = r,
                   upper = upper, lower = lower)
 
     grob <- as.gList(x)
