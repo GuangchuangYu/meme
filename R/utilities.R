@@ -1,9 +1,7 @@
-
+## convert pixel to inch
 px2in <- function(x) {
     x * 0.010417
 }
-
-
 
 ##' aspect ratio of meme
 ##'
