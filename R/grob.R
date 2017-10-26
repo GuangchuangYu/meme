@@ -52,13 +52,14 @@ as.gList <- function(x) {
 }
 
 ##' @importFrom grid unit
-shadowtext <- function(text, gp = gpar(), vp = viewport(), r=0.005) {
+shadowtext <- function(text, gp = gpar(), vp = viewport(), r=0.2) {
     theta <- seq(pi/8, 2*pi, length.out=16)
     ovp <- vp
+
     txtList <- lapply(theta, function(i) {
         vp <- ovp
-        vp$x <- vp$x + unit(cos(i) * r, "npc")
-        vp$y <- vp$y + unit(sin(i) * r, "npc")
+        vp$x <- vp$x + unit(cos(i) * r, "strwidth", data = "G")
+        vp$y <- vp$y + unit(sin(i) * r, "strheight", data = "G")
         textGrob(text, gp = gp, vp = vp)
     })
     do.call(gList, txtList)

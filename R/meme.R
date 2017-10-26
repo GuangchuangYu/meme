@@ -27,7 +27,7 @@
 ##' meme(f, "code", "all the things!", font = "Helvetica")
 ##' @author guangchuang yu
 meme <- function(img, upper="", lower="", size="auto", color="white", font="Impact",
-                 vjust = .1, bgcolor="black", r = 0.05) {
+                 vjust = .1, bgcolor="black", r = 0.2) {
     x <- image_read(img)
     info <- image_info(x)
 
