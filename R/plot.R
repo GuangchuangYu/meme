@@ -31,12 +31,10 @@ print.meme <- function(x, size = NULL, color = NULL, font = NULL,
 
     ## R CMD check will throw error when using default font 'Impact'
 
-    params <- list(size = size, color = color,
-                   font = font, vjust = vjust,
-                   upper = upper, lower = lower)
-    params <- params[!sapply(params, is.null)]
+    x <- x + list(size = size, color = color,
+                  font = font, vjust = vjust,
+                  upper = upper, lower = lower)
 
-    x <- modifyList(x, params)
     grob <- as.gList(x)
 
     ## if (dev.interactive())

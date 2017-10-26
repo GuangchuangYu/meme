@@ -121,19 +121,4 @@ mm_caption <- function(upper=NULL, lower=NULL, ...) {
     list(upper = upper, lower = lower, ...)
 }
 
-## ##' @rdname meme-add
-## ##' @export
-## "%+%" <- `+.meme`
-
-
-## ## @method print meme
-## ## @export
-## print.meme <- function(x, ...) {
-##     msg <- paste0("meme:\n  image souce:  ", x$img,
-##                   "\n  caption:\n    upper:  ", x$upper,
-##                   "\n    lower:  ", x$lower)
-##     message(msg)
-## }
-
-
 
