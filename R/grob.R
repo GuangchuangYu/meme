@@ -34,27 +34,31 @@ as.gList <- function(x) {
     vjust <- (h * x$vjust + (ds[2]-h)/2)/ds[2]
 
     gp <- gpar(col = x$color, fontfamily = x$font, cex = x$size)
-    upperGrob <- textGrob(toupper(x$upper), gp = gp, vp = viewport(y=1-vjust))
-    lowerGrob <- textGrob(toupper(x$lower), gp = gp, vp = viewport(y=vjust))
+    uvp <- viewport(y = 1-vjust)
+    lvp <- viewport(y = vjust)
+
+    upperGrob <- textGrob(toupper(x$upper), gp = gp, vp = uvp)
+    lowerGrob <- textGrob(toupper(x$lower), gp = gp, vp = lvp)
 
     if (is.null(x$bgcolor)) {
         return(gList(x$imageGrob, upperGrob, lowerGrob))
     }
 
     gp$col <- x$bgcolor
-    upperBg <- shadowtext(toupper(x$upper), gp = gp, vp =  viewport(y=1-vjust), x$r)
-    lowerBg <- shadowtext(toupper(x$lower), gp = gp, vp =  viewport(y=vjust), x$r)
+    upperBg <- shadowtext(toupper(x$upper), gp = gp, vp = uvp, x$r)
+    lowerBg <- shadowtext(toupper(x$lower), gp = gp, vp = lvp, x$r)
 
     gList(x$imageGrob, upperBg, lowerBg, upperGrob, lowerGrob)
 }
 
-
-shadowtext <- function(text, gp = gpar(), vp = viewport(), r=0.01) {
+##' @importFrom grid unit
+shadowtext <- function(text, gp = gpar(), vp = viewport(), r=0.005) {
     theta <- seq(pi/8, 2*pi, length.out=16)
-
+    ovp <- vp
     txtList <- lapply(theta, function(i) {
-        vp$x <- vp$x * (1 + cos(i) * r)
-        vp$y <- vp$y * (1 + sin(i) * r)
+        vp <- ovp
+        vp$x <- vp$x + unit(cos(i) * r, "npc")
+        vp$y <- vp$y + unit(sin(i) * r, "npc")
         textGrob(text, gp = gp, vp = vp)
     })
     do.call(gList, txtList)

@@ -71,6 +71,9 @@ the output figure aspect ratio and calls `ggsave` to export the figure:
 ```{r message=TRUE}
 u2 <- system.file("success.jpg", package="meme")
 x <- meme(u2, "please", "tell me more")
+```
+
+```{r eval=FALSE}
 outfile <- tempfile(fileext=".png")
 meme_save(x, file=outfile)
 ```
@@ -124,7 +127,7 @@ y
 
 ```{r fig.width=7}
 library(grid)
-mm <- meme(u, "code", "all the things!", size=.3, color='firebrick')
+mm <- meme(u, "code", "all the things!", size=.3, color='firebrick', bgcolor=NULL)
 
 grid.newpage()
 pushViewport(viewport(width=.9, height=.9))

@@ -7,7 +7,7 @@ Description: The word 'Meme' was originated from the book, 'The Selfish Gene', a
              The internet memes are captioned photos that are intended to be funny, ridiculous.
              Memes behave like infectious viruses and travel from person to person quickly through social media.
              The 'meme' package allows users to make custom memes.
-Depends: R (>= 3.4.2)
+Depends: R (>= 3.4.1)
 Imports:
     ggplot2,
     graphics,

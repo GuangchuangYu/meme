@@ -1,4 +1,4 @@
-# meme: Create meme in R
+# meme: Create memes in R
 
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/meme?color=green)](https://cran.r-project.org/package=meme)

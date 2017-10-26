@@ -5,7 +5,7 @@
 \title{meme}
 \usage{
 meme(img, upper = "", lower = "", size = "auto", color = "white",
-  font = "Impact", vjust = 0.1, bgcolor = "black", r = 0.01)
+  font = "Impact", vjust = 0.1, bgcolor = "black", r = 0.05)
 }
 \arguments{
 \item{img}{path or url}
