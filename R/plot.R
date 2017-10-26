@@ -29,7 +29,7 @@ print.meme <- function(x, size = NULL, color = NULL, font = NULL,
                        upper = NULL, lower = NULL, vjust=NULL,
                        newpage = is.null(vp), vp = NULL, ...) {
 
-    ## R CMD check will throw error when using default font 'Impact'
+    ## R CMD check will throw error when using default font 'Impact' in Rd examples
 
     x <- x + list(size = size, color = color,
                   font = font, vjust = vjust,
