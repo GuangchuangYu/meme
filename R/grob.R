@@ -49,7 +49,7 @@ as.gList <- function(x) {
 }
 
 
-shadowtext <- function(text, gp = gpar(), vp = NULL, r=0.01) {
+shadowtext <- function(text, gp = gpar(), vp = viewport(), r=0.01) {
     theta <- seq(pi/8, 2*pi, length.out=16)
 
     txtList <- lapply(theta, function(i) {
