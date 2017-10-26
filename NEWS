@@ -13,6 +13,6 @@ CHANGES IN VERSION 0.0.6
  o initial release
    + meme and meme_save
    + print, plot and + method
-   + compatible with grid, ggplot2, ggimage and cowplot
    + memeGrob to convert the meme object to grob
+     - compatible with grid, ggplot2, ggimage and cowplot
    + asp function calculate the aspect ratio of image
