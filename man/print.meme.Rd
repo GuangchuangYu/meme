@@ -39,6 +39,6 @@ print method for meme object
 }
 \examples{
 f <- system.file("angry8.jpg", package="meme")
-x <- meme(f, "code", "all the things!")
+x <- meme(f, "code", "all the things!", font = "Helvetica")
 print(x)
 }

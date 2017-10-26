@@ -13,7 +13,6 @@ Imports:
     graphics,
     grDevices,
     grid,
-    gridGraphics,
     magick,
     methods,
     utils

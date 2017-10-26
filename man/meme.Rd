@@ -5,7 +5,7 @@
 \title{meme}
 \usage{
 meme(img, upper = "", lower = "", size = "auto", color = "white",
-  font = "Helvetica", vjust = 0.1)
+  font = "Impact", vjust = 0.1)
 }
 \arguments{
 \item{img}{path or url}
@@ -30,7 +30,7 @@ create meme
 }
 \examples{
 f <- system.file("angry8.jpg", package="meme")
-meme(f, "code", "all the things!")
+meme(f, "code", "all the things!", font = "Helvetica")
 }
 \author{
 guangchuang yu

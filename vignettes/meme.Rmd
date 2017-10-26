@@ -56,7 +56,7 @@ Not that useful, just to mimic `ggplot2`:
 
 ```{r fig.width=7, fig.height=3.9375}
 mmplot(u) + mm_caption("calm down", "and RTFM",
-                       font = "Impact", color="purple")
+                       color="purple")
 ```
 
 

@@ -22,9 +22,9 @@
 ##' @export
 ##' @examples
 ##' f <- system.file("angry8.jpg", package="meme")
-##' meme(f, "code", "all the things!")
+##' meme(f, "code", "all the things!", font = "Helvetica")
 ##' @author guangchuang yu
-meme <- function(img, upper="", lower="", size="auto", color="white", font="Helvetica", vjust = .1) {
+meme <- function(img, upper="", lower="", size="auto", color="white", font="Impact", vjust = .1) {
     x <- image_read(img)
     info <- image_info(x)
 
@@ -81,18 +81,9 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
 }
 
 
-##' Setting meme parameter
-##'
-##'
-##' @rdname meme-add
-##' @param e1 meme object
-##' @param e2 aes()
 ##' @method + meme
 ##' @importFrom utils modifyList
 ##' @export
-##' @examples
-##' f <- system.file("angry8.jpg", package="meme")
-##' meme(f, "code", "all the things!") + aes(color="firebrick")
 "+.meme" <- function(e1, e2) {
     if (is(e2, "uneval"))
         e2 <- as.character(e2)

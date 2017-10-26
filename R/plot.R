@@ -23,11 +23,13 @@
 ##' @importFrom grid seekViewport
 ##' @examples
 ##' f <- system.file("angry8.jpg", package="meme")
-##' x <- meme(f, "code", "all the things!")
+##' x <- meme(f, "code", "all the things!", font = "Helvetica")
 ##' print(x)
 print.meme <- function(x, size = NULL, color = NULL, font = NULL,
                        upper = NULL, lower = NULL, vjust=NULL,
                        newpage = is.null(vp), vp = NULL, ...) {
+
+    ## R CMD check will throw error when using default font 'Impact'
 
     params <- list(size = size, color = color,
                    font = font, vjust = vjust,
@@ -63,10 +65,20 @@ grid.draw.meme <- function(x, recording = TRUE) {
     print(x)
 }
 
-
+##' grid.echo method for meme object
+##'
+##' using the solution <https://stackoverflow.com/a/18551959/3844636>
+##' to not importing grid.echo generics from gridGraphics for easy installation,
+##' since gridGraphics has system requirement of ImageMagick <https://github.com/cran/gridGraphics/blob/master/DESCRIPTION#L14>.
+##' @title grid.echo.meme
+##' @param x meme object
+##' @param newpage not use in this method
+##' @param prefix not use in this method
+##' @return meme object
 ##' @method grid.echo meme
-##' @importFrom gridGraphics grid.echo
-##' @export
+## @importFrom gridGraphics grid.echo
+##' @export grid.echo.meme
+##' @author guangchuang yu
 grid.echo.meme <- function(x = NULL, newpage = TRUE, prefix = NULL) {
     if (!is.null(dev.list()))
         tryCatch(dev.off(), error = function(e) NULL)
