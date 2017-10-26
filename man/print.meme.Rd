@@ -7,11 +7,11 @@
 \usage{
 \method{print}{meme}(x, size = NULL, color = NULL, font = NULL,
   upper = NULL, lower = NULL, vjust = NULL, bgcolor = NULL, r = NULL,
-  newpage = is.null(vp), vp = NULL, ...)
+  newpage = is.null(vp), vp = NULL, newdev = FALSE, ...)
 
 \method{plot}{meme}(x, size = NULL, color = NULL, font = NULL,
   upper = NULL, lower = NULL, vjust = NULL, bgcolor = NULL, r = NULL,
-  newpage = is.null(vp), vp = NULL, ...)
+  newpage = is.null(vp), vp = NULL, newdev = FALSE, ...)
 }
 \arguments{
 \item{x}{meme object}
@@ -35,6 +35,8 @@
 \item{newpage}{draw new (empty) page first?}
 
 \item{vp}{viewport to draw plot in}
+
+\item{newdev}{open new graphic device?}
 
 \item{...}{other arguments not used by this method}
 }

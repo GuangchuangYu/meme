@@ -14,6 +14,7 @@
 ##' @param r ratio for shadow text
 ##' @param newpage draw new (empty) page first?
 ##' @param vp viewport to draw plot in
+##' @param newdev open new graphic device?
 ##' @param ... other arguments not used by this method
 ##' @importFrom grDevices dev.list
 ##' @importFrom grDevices dev.off
@@ -30,7 +31,7 @@
 print.meme <- function(x, size = NULL, color = NULL, font = NULL,
                        upper = NULL, lower = NULL, vjust=NULL,
                        bgcolor = NULL, r = NULL,
-                       newpage = is.null(vp), vp = NULL, ...) {
+                       newpage = is.null(vp), vp = NULL, newdev = FALSE, ...) {
 
     ## R CMD check will throw error when using default font 'Impact' in Rd examples
 
@@ -40,6 +41,8 @@ print.meme <- function(x, size = NULL, color = NULL, font = NULL,
                   upper = upper, lower = lower)
 
     grob <- as.gList(x)
+
+    if (newdev) meme_dev(x)
 
     ## if (dev.interactive())
     if (newpage) grid.newpage()
@@ -85,10 +88,14 @@ grid.draw.meme <- function(x, recording = TRUE) {
 ##' @export grid.echo.meme
 ##' @author guangchuang yu
 grid.echo.meme <- function(x = NULL, newpage = TRUE, prefix = NULL) {
+    meme_dev(x)
+    grid.draw(x)
+}
+
+
+meme_dev <- function(x) {
     if (!is.null(dev.list()))
         tryCatch(dev.off(), error = function(e) NULL)
     dev.new(width=7, height=7*x$height/x$width, noRStudioGD = TRUE)
-
-    grid.draw(x)
 }
 
