@@ -20,7 +20,8 @@ Suggests:
     cowplot,
     ggimage,
     knitr,
-    prettydoc
+    prettydoc,
+    shadowtext
 VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
