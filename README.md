@@ -36,3 +36,13 @@ devtools::install_github("GuangchuangYu/meme")
 ## after installing the package
 vignette("meme", package="meme")
 ```
+
+## Example
+
+```r
+library(meme)
+u <- system.file("angry8.jpg", package="meme")
+meme(u, "code", "all the things!")
+```
+
+![](https://guangchuangyu.github.io/blog_images/R/meme/shadowtext.png)
