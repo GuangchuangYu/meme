@@ -37,7 +37,23 @@ library(cowplot)
 ```
 
 
+## special note for windows users
+
+For windows users, you need to register your font before using it in R graphics
+(see discussion [here](https://github.com/GuangchuangYu/meme/issues/1)).
+
+```{r}
+if (.Platform$OS.type == "windows") {
+    ## fonts that used in this vignette
+    windowsFonts(
+        Impact = windowsFont("Impact"),
+        Courier = windowsFont("Courier"),
+        STHeiti = windowsFont("STHeiti"))
+}
+```
+
 ## `meme`
+
 
 Call `meme` to add meme captions:
 
@@ -121,6 +137,7 @@ simply select a font for your language.
 y <- meme(u, "卧槽", "听说你想用中文", font="STHeiti")
 y
 ```
+
 
 ## grid support
 
