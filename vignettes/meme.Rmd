@@ -170,10 +170,10 @@ library(ggimage)
 
 d <- data.frame(x = xx, y = yy)
 ggplot(d, aes(x, y)) + geom_line() +
-    geom_subview(mm, x = xx, y = yy, width=.3, height=.15)
+    geom_subview(aes(x, y), data=d, subview=mm, width=.3, height=.15)
 
 ggplot(d, aes(x, y)) +
-    geom_subview(mm+aes(size=3), x=0, y=0, width=Inf, height=Inf) +
+    geom_subview(x = 0, y = 0, subview=mm+aes(size=3), width=Inf, height=Inf) +
     geom_point() + geom_line()
 ```
 

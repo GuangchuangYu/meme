@@ -19,11 +19,11 @@ asp <- function(x) {
     x$height/x$width
 }
 
-##' @method length meme
-##' @export
-length.meme <- function(x) {
-    return(1)
-}
+## ##' @method length meme
+## ##' @export
+## length.meme <- function(x) {
+##     return(1)
+## }
 
 ##' @importFrom ggplot2 aes
 ##' @export

@@ -2,7 +2,6 @@
 
 S3method("+",meme)
 S3method(grid.draw,meme)
-S3method(length,meme)
 S3method(plot,meme)
 S3method(print,meme)
 export(aes)
