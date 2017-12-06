@@ -44,11 +44,10 @@ For windows users, you need to register your font before using it in R graphics
 
 ```{r}
 if (.Platform$OS.type == "windows") {
-    ## fonts that used in this vignette
     windowsFonts(
         Impact = windowsFont("Impact"),
-        Courier = windowsFont("Courier"),
-        STHeiti = windowsFont("STHeiti"))
+        Courier = windowsFont("Courier")
+    )
 }
 ```
 

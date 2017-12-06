@@ -20,7 +20,7 @@ font_import2 <- function(font_dir) {
 ##' @importFrom showtext showtext_auto
 ##' @export
 ##' @author Guangchuang Yu
-font_import <- function(path) {
+font_import <- function(path='.') {
     wd <- getwd()
     setwd(path)
     fonts <- list.files(path, pattern="ttf")

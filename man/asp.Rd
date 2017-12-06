@@ -16,9 +16,11 @@ asp ratio
 aspect ratio of meme
 }
 \examples{
+\dontrun{
 f <- system.file("icon.png", package="meme")
 x <- meme(f, "meme", "produced by meme package")
 asp(x)
+}
 }
 \author{
 guangchuang yu

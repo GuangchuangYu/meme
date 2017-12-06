@@ -12,9 +12,11 @@ px2in <- function(x) {
 ##' @export
 ##' @author guangchuang yu
 ##' @examples
+##' \dontrun{
 ##' f <- system.file("icon.png", package="meme")
 ##' x <- meme(f, "meme", "produced by meme package")
 ##' asp(x)
+##' }
 asp <- function(x) {
     x$height/x$width
 }
