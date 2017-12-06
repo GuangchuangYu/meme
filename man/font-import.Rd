@@ -7,7 +7,7 @@
 \usage{
 font_pokemon()
 
-font_import(path)
+font_import(path = ".")
 }
 \arguments{
 \item{path}{folder of fonts}

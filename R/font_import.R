@@ -5,7 +5,7 @@ font_pokemon <- function() {
 }
 
 font_import2 <- function(font_dir) {
-    path <- system.file("fonts", font_dir, package="funnyfont")
+    path <- system.file("fonts", font_dir, package="meme")
     font_import(path)
 }
 
