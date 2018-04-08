@@ -37,18 +37,18 @@ as.gList <- function(x) {
 
     upperGrob <- shadowtext(toupper(x$upper), gp = gp,
                             vp = viewport(y = 1-vjust),
-                            bgcolor = x$bgcolor, r = x$r)
+                            bgcolor = x$bgcolor, r = x$r, vjust=1)
 
     lowerGrob <- shadowtext(toupper(x$lower), gp = gp,
                             vp = viewport(y = vjust),
-                            bgcolor = x$bgcolor, r = x$r)
+                            bgcolor = x$bgcolor, r = x$r, vjust=0)
 
     gList(x$imageGrob, upperGrob, lowerGrob)
 }
 
 ##' @importFrom grid unit
-shadowtext <- function(text, gp = gpar(), vp = viewport(), bgcolor = NULL, r=0.2) {
-    upperGrob <- textGrob(text, gp = gp, vp = vp)
+shadowtext <- function(text, gp = gpar(), vp = viewport(), bgcolor = NULL, r=0.2, vjust=.5) {
+    upperGrob <- textGrob(text, gp = gp, vp = vp, vjust = vjust)
 
     if (is.null(bgcolor)) return(upperGrob)
 
@@ -61,7 +61,7 @@ shadowtext <- function(text, gp = gpar(), vp = viewport(), bgcolor = NULL, r=0.2
         vp <- ovp
         vp$x <- vp$x + unit(cos(i) * r, "strwidth", data = char)
         vp$y <- vp$y + unit(sin(i) * r, "strheight", data = char)
-        textGrob(text, gp = gp, vp = vp)
+        textGrob(text, gp = gp, vp = vp, vjust = vjust)
     })
 
     bgGrob <- do.call(gList, bgList)

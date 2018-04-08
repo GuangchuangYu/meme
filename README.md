@@ -1,45 +1,46 @@
-# meme: Create memes in R
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+meme: Create memes in R
+=======================
 
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/meme?color=green)](https://cran.r-project.org/package=meme) ![](http://cranlogs.r-pkg.org/badges/grand-total/meme?color=green) ![](http://cranlogs.r-pkg.org/badges/meme?color=green) ![](http://cranlogs.r-pkg.org/badges/last-week/meme?color=green)
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/meme?color=green)](https://cran.r-project.org/package=meme)
-![](http://cranlogs.r-pkg.org/badges/grand-total/meme?color=green)
-![](http://cranlogs.r-pkg.org/badges/meme?color=green)
-![](http://cranlogs.r-pkg.org/badges/last-week/meme?color=green)
-[![gitter](https://img.shields.io/badge/GITTER-join%20chat-green.svg)](https://gitter.im/GuangchuangYu/Bioinformatics)
-
-
-## Authors
+Authors
+-------
 
 Guangchuang YU <https://guangchuangyu.github.io>
 
 School of Public Health, The University of Hong Kong
 
-## Installation
+[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/GuangchuangYu) [![](https://img.shields.io/badge/follow%20me%20on-微信-green.svg?style=flat)](https://guangchuangyu.github.io/blog_images/biobabble.jpg) [![](https://img.shields.io/badge/打赏-支付宝/微信-green.svg?style=flat)](https://guangchuangyu.github.io/blog_images/pay_qrcode.png)
+
+Installation
+------------
 
 Get the released version from CRAN:
 
-```r
+``` r
 install.packages("meme")
 ```
 
 Or the development version from github:
 
-```r
+``` r
 ## install.packages("devtools")
 devtools::install_github("GuangchuangYu/meme")
 ```
 
+Vignette
+--------
 
-## Vignette
-
-```r
+``` r
 ## after installing the package
 vignette("meme", package="meme")
 ```
 
-## Example
+Example
+-------
 
-```r
+``` r
 library(meme)
 u <- system.file("angry8.jpg", package="meme")
 meme(u, "code", "all the things!")
