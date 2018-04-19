@@ -5,7 +5,8 @@
 \title{meme}
 \usage{
 meme(img, upper = "", lower = "", size = "auto", color = "white",
-  font = "Impact", vjust = 0.05, bgcolor = "black", r = 0.2)
+  font = "Impact", vjust = 0.05, bgcolor = "black", r = 0.2,
+  density = NULL)
 }
 \arguments{
 \item{img}{path or url}
@@ -25,6 +26,8 @@ meme(img, upper = "", lower = "", size = "auto", color = "white",
 \item{bgcolor}{background color of shadow text}
 
 \item{r}{ratio of shadow text}
+
+\item{density}{resolution to render pdf or svg}
 }
 \value{
 grob object

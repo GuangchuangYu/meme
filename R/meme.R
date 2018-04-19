@@ -11,6 +11,7 @@
 ##' @param vjust vertical adjustment of captions
 ##' @param bgcolor background color of shadow text
 ##' @param r ratio of shadow text
+##' @param density resolution to render pdf or svg
 ##' @return grob object
 ##' @importFrom magick image_read
 ##' @importFrom magick image_info
@@ -27,8 +28,8 @@
 ##' meme(f, "code", "all the things!", font = "Helvetica")
 ##' @author guangchuang yu
 meme <- function(img, upper="", lower="", size="auto", color="white", font="Impact",
-                 vjust = .05, bgcolor="black", r = 0.2) {
-    x <- image_read(img)
+                 vjust = .05, bgcolor="black", r = 0.2, density = NULL) {
+    x <- image_read(img, density=density)
     info <- image_info(x)
 
     imageGrob <- rasterGrob(x)
