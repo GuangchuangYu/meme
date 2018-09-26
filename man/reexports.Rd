@@ -4,7 +4,6 @@
 \name{reexports}
 \alias{reexports}
 \alias{aes}
-\alias{reexports}
 \alias{ggsave}
 \title{Objects exported from other packages}
 \keyword{internal}

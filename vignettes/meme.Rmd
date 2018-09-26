@@ -180,8 +180,9 @@ ggplot(d, aes(x, y)) +
 ## cowplot support
 
 
-```{r fig.width=7, fig.height=7.88}
-cowplot::plot_grid(x, y, ncol=1, labels = c("A", "B"))
+```{r fig.width=7, fig.height=7.88, eval=F}
+library(cowplot)
+plot_grid(x, y, ncol=1, labels = c("A", "B"))
 ```
 
 
