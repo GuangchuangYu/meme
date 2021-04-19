@@ -4,9 +4,18 @@
 \alias{meme}
 \title{meme}
 \usage{
-meme(img, upper = "", lower = "", size = "auto", color = "white",
-  font = "Impact", vjust = 0.05, bgcolor = "black", r = 0.2,
-  density = NULL)
+meme(
+  img,
+  upper = "",
+  lower = "",
+  size = "auto",
+  color = "white",
+  font = "Impact",
+  vjust = 0.05,
+  bgcolor = "black",
+  r = 0.2,
+  density = NULL
+)
 }
 \arguments{
 \item{img}{path or url}

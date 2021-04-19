@@ -5,13 +5,37 @@
 \alias{plot.meme}
 \title{print method for meme object}
 \usage{
-\method{print}{meme}(x, size = NULL, color = NULL, font = NULL,
-  upper = NULL, lower = NULL, vjust = NULL, bgcolor = NULL,
-  r = NULL, newpage = is.null(vp), vp = NULL, newdev = FALSE, ...)
+\method{print}{meme}(
+  x,
+  size = NULL,
+  color = NULL,
+  font = NULL,
+  upper = NULL,
+  lower = NULL,
+  vjust = NULL,
+  bgcolor = NULL,
+  r = NULL,
+  newpage = is.null(vp),
+  vp = NULL,
+  newdev = FALSE,
+  ...
+)
 
-\method{plot}{meme}(x, size = NULL, color = NULL, font = NULL,
-  upper = NULL, lower = NULL, vjust = NULL, bgcolor = NULL,
-  r = NULL, newpage = is.null(vp), vp = NULL, newdev = FALSE, ...)
+\method{plot}{meme}(
+  x,
+  size = NULL,
+  color = NULL,
+  font = NULL,
+  upper = NULL,
+  lower = NULL,
+  vjust = NULL,
+  bgcolor = NULL,
+  r = NULL,
+  newpage = is.null(vp),
+  vp = NULL,
+  newdev = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{meme object}
