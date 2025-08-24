@@ -23,5 +23,5 @@ asp(x)
 }
 }
 \author{
-guangchuang yu
+Guangchuang Yu
 }

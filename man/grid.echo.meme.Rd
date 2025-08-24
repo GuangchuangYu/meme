@@ -4,7 +4,7 @@
 \alias{grid.echo.meme}
 \title{grid.echo.meme}
 \usage{
-\method{grid.echo}{meme}(x = NULL, newpage = TRUE, prefix = NULL)
+\method{grid.echo}{meme}(x = NULL, newpage = TRUE, prefix = NULL, ...)
 }
 \arguments{
 \item{x}{meme object}
@@ -12,6 +12,8 @@
 \item{newpage}{not use in this method}
 
 \item{prefix}{not use in this method}
+
+\item{...}{not use in this method}
 }
 \value{
 meme object
@@ -27,5 +29,5 @@ since gridGraphics has system requirement of ImageMagick <https://github.com/cra
 this method is just a hack for making cowplot to support meme object, and not used elsewhere.
 }
 \author{
-guangchuang yu
+Guangchuang Yu
 }

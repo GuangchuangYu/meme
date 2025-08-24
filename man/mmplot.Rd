@@ -16,5 +16,5 @@ meme object
 plot the image for meme (captions to be added)
 }
 \author{
-guangchuang yu
+Guangchuang Yu
 }

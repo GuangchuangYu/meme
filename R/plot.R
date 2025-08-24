@@ -82,12 +82,13 @@ grid.draw.meme <- function(x, recording = TRUE) {
 ##' @param x meme object
 ##' @param newpage not use in this method
 ##' @param prefix not use in this method
+##' @param ... not use in this method
 ##' @return meme object
 ##' @method grid.echo meme
 ##' @importFrom gridGraphics grid.echo
 ## @export grid.echo.meme
-##' @author guangchuang yu
-grid.echo.meme <- function(x = NULL, newpage = TRUE, prefix = NULL) {
+##' @author Guangchuang Yu
+grid.echo.meme <- function(x = NULL, newpage = TRUE, prefix = NULL, ...) {
     meme_dev(x)
     grid.draw(x)
 }

@@ -49,5 +49,5 @@ f <- system.file("angry8.jpg", package="meme")
 meme(f, "code", "all the things!", font = "Helvetica")
 }
 \author{
-guangchuang yu
+Guangchuang Yu
 }

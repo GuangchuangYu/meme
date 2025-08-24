@@ -26,7 +26,7 @@
 ##' @examples
 ##' f <- system.file("angry8.jpg", package="meme")
 ##' meme(f, "code", "all the things!", font = "Helvetica")
-##' @author guangchuang yu
+##' @author Guangchuang Yu
 meme <- function(img, upper="", lower="", size="auto", color="white", font="Impact",
                  vjust = .05, bgcolor="black", r = 0.2, density = NULL) {
     x <- image_read(img, density=density)
@@ -64,7 +64,7 @@ meme <- function(img, upper="", lower="", size="auto", color="white", font="Impa
 ##' x <- meme(f, "code", "all the things!")
 ##' outfile <- tempfile(fileext = ".png")
 ##' meme_save(x, outfile)
-##' @author guangchuang yu
+##' @author Guangchuang Yu
 meme_save <- function(x, file, width = NULL, height = NULL, ...) {
     if (!is(x, "meme")) {
         stop("x should be an instance of 'meme'")
@@ -107,7 +107,7 @@ meme_save <- function(x, file, width = NULL, height = NULL, ...) {
 ##' @param x image file
 ##' @return meme object
 ##' @export
-##' @author guangchuang yu
+##' @author Guangchuang Yu
 mmplot <- function(x) {
     meme(x)
 }
@@ -121,7 +121,7 @@ mmplot <- function(x) {
 ##' @param ... additional parameters to set caption
 ##' @return meme object
 ##' @export
-##' @author guangchuang yu
+##' @author Guangchuang Yu
 mm_caption <- function(upper=NULL, lower=NULL, ...) {
     list(upper = upper, lower = lower, ...)
 }

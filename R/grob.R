@@ -10,7 +10,7 @@
 ##' f <- system.file("angry8.jpg", package="meme")
 ##' x <- meme(f, "code", "all the things!")
 ##' memeGrob(x)
-##' @author guangchuang yu
+##' @author Guangchuang Yu
 memeGrob <- function(x) {
     as.gTree(x)
 }

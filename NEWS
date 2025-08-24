@@ -1,3 +1,7 @@
+CHANGES IN VERSION 0.2.4
+------------------------
+ o update vignette to use `list()' instead of `aes()' as there is a bug in S7 (2025-08-24, Sun, #3, #4)
+
 CHANGES IN VERSION 0.2.1
 ------------------------
  o register the grid.echo.meme to fix R check <2018-09-18, Mon>

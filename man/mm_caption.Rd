@@ -20,5 +20,5 @@ meme object
 add caption layer for meme
 }
 \author{
-guangchuang yu
+Guangchuang Yu
 }

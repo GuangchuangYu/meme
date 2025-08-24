@@ -10,7 +10,7 @@ px2in <- function(x) {
 ##' @param x meme object
 ##' @return asp ratio
 ##' @export
-##' @author guangchuang yu
+##' @author Guangchuang Yu
 ##' @examples
 ##' \dontrun{
 ##' f <- system.file("icon.png", package="meme")

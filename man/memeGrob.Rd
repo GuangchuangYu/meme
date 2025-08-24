@@ -21,5 +21,5 @@ x <- meme(f, "code", "all the things!")
 memeGrob(x)
 }
 \author{
-guangchuang yu
+Guangchuang Yu
 }

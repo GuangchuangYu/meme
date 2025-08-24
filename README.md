@@ -1,20 +1,27 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-meme: Create memes in R
-=======================
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/meme?color=green)](https://cran.r-project.org/package=meme) ![](http://cranlogs.r-pkg.org/badges/grand-total/meme?color=green) ![](http://cranlogs.r-pkg.org/badges/meme?color=green) ![](http://cranlogs.r-pkg.org/badges/last-week/meme?color=green)
+# meme: Create memes in R
 
-Authors
--------
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/meme?color=green)](https://cran.r-project.org/package=meme)
+![](http://cranlogs.r-pkg.org/badges/grand-total/meme?color=green)
+![](http://cranlogs.r-pkg.org/badges/meme?color=green)
+![](http://cranlogs.r-pkg.org/badges/last-week/meme?color=green)
 
-Guangchuang YU <https://guangchuangyu.github.io>
+The word ‘Meme’ was originated from the book, ‘The Selfish Gene’,
+authored by Richard Dawkins (1976). It is a unit of culture that is
+passed from one generation to another and correlates to the gene, the
+unit of physical heredity. The internet memes are captioned photos that
+are intended to be funny, ridiculous. Memes behave like infectious
+viruses and travel from person to person quickly through social media.
+The ‘meme’ package allows users to make custom memes.
 
-School of Public Health, The University of Hong Kong
+## Authors
 
-[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/GuangchuangYu) [![](https://img.shields.io/badge/follow%20me%20on-微信-green.svg?style=flat)](https://guangchuangyu.github.io/blog_images/biobabble.jpg) [![](https://img.shields.io/badge/打赏-支付宝/微信-green.svg?style=flat)](https://guangchuangyu.github.io/blog_images/pay_qrcode.png)
+Guangchuang YU <https://yulab-smu.top>
 
-Installation
-------------
+School of Basic Medical Sciences, Southern Medical University
+
+## Installation
 
 Get the released version from CRAN:
 
@@ -29,16 +36,14 @@ Or the development version from github:
 devtools::install_github("GuangchuangYu/meme")
 ```
 
-Vignette
---------
+## Vignette
 
 ``` r
 ## after installing the package
 vignette("meme", package="meme")
 ```
 
-Example
--------
+## Example
 
 ``` r
 library(meme)

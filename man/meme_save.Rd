@@ -27,5 +27,5 @@ outfile <- tempfile(fileext = ".png")
 meme_save(x, outfile)
 }
 \author{
-guangchuang yu
+Guangchuang Yu
 }
